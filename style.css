@@ -1,0 +1,1143 @@
+/* ============================================
+   Carrie Moore's Stylesheet 
+   ============================================ */
+
+/* ---- Reset & Base ---- */
+/* Applies to every element and pseudo-element.
+   box-sizing: border-box makes padding and border count inside the set width/height.
+   margin and padding are reset to 0 so browsers do not add their own default spacing. */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Makes anchor links scroll smoothly instead of jumping instantly. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Main page styling.
+   Sets the default font, text color, background color, and spacing used site-wide.
+   overflow-x: hidden prevents horizontal scrolling if something slightly sticks out. */
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  background-color: #F2E8D5;
+  color: #1a1714;
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* ============================================
+            BANNER
+   ============================================ */
+
+/* Main top hero/banner section.
+   Uses layered gradients for a deep red background with a soft glossy effect.
+   display: flex centers the content inside.
+   position: relative lets absolutely-positioned decorative pieces sit inside it. */
+.banner {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0)),
+    linear-gradient(to right, #7a0000, #b71c1c, #c62828);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  height: 400px;
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Holds the centered text content inside the banner.
+   z-index keeps it above decorative shapes.
+   max-width prevents the text from stretching too wide on large screens. */
+.banner-center {
+  text-align: center;
+  flex: 1;
+  position: relative;
+  z-index: 3;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* Main banner heading.
+   clamp() makes the font responsive:
+   it grows/shrinks between 48px and 70px depending on screen size. */
+.banner-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(48px, 7vw, 70px);
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.22);
+}
+
+/* Small subtitle under the main banner title.
+   Italic serif gives it a more elegant, softer look. */
+.banner-tagline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.16);
+}
+
+/* Shared class for decorative banner elements.
+   position: absolute lets each shape be placed anywhere inside the banner.
+   pointer-events: none makes sure they cannot block clicks. */
+.banner-decor {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Soft glowing circle in the banner background.
+   radial-gradient makes it fade outward like sunlight. */
+.banner-sun {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  top: -70px;
+  right: 90px;
+  background: radial-gradient(circle, rgba(255,215,120,0.38) 0%, rgba(255,215,120,0.16) 40%, rgba(255,215,120,0) 72%);
+  z-index: 1;
+}
+
+/* Shared base style for decorative orb circles.
+   Slight border and shadow make them look soft and elegant. */
+.banner-orb {
+  border: 1px solid rgba(231, 200, 120, 0.28);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  box-shadow: inset 0 0 18px rgba(255,255,255,0.03);
+  z-index: 1;
+}
+
+/* Individual positioning/sizing for orb 1 */
+.banner-orb-1 {
+  width: 150px;
+  height: 150px;
+  top: 34px;
+  left: 58px;
+}
+
+/* Individual positioning/sizing for orb 2 */
+.banner-orb-2 {
+  width: 90px;
+  height: 90px;
+  bottom: 56px;
+  left: 180px;
+}
+
+/* Individual positioning/sizing for orb 3 */
+.banner-orb-3 {
+  width: 120px;
+  height: 120px;
+  top: 72px;
+  right: 220px;
+}
+
+/* Decorative wave shape near the bottom of the banner.
+   clip-path trims it into an ellipse shape.
+   opacity keeps it subtle. */
+.banner-wave {
+  left: -5%;
+  bottom: -18px;
+  width: 110%;
+  height: 90px;
+  background:
+    radial-gradient(circle at 20px 20px, rgba(255,255,255,0.16) 2px, transparent 3px),
+    linear-gradient(to right, rgba(255,255,255,0.14), rgba(231,200,120,0.18), rgba(255,255,255,0.12));
+  opacity: 0.45;
+  clip-path: ellipse(60% 65% at 50% 100%);
+  z-index: 1;
+}
+
+/* Shared style for leaf/branch accents.
+   Low opacity keeps them decorative instead of distracting. */
+.banner-leaf {
+  width: 170px;
+  height: 170px;
+  opacity: 0.18;
+  z-index: 1;
+}
+
+/* Left decorative branch shape.
+   The radial gradients create small glowing leaf dots.
+   border-left creates the branch stem. */
+.banner-leaf-left {
+  left: -20px;
+  bottom: 12px;
+  background:
+    radial-gradient(circle at 35% 65%, rgba(255,255,255,0.65) 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 45%, rgba(255,255,255,0.65) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.65) 0 2px, transparent 3px);
+  border-left: 2px solid rgba(255,255,255,0.25);
+  border-bottom-left-radius: 120px;
+  transform: rotate(-18deg);
+}
+
+/* Right decorative branch shape.
+   Similar to the left one, but mirrored. */
+.banner-leaf-right {
+  right: -20px;
+  top: 24px;
+  background:
+    radial-gradient(circle at 35% 65%, rgba(255,255,255,0.65) 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 45%, rgba(255,255,255,0.65) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 30%, rgba(255,255,255,0.65) 0 2px, transparent 3px);
+  border-right: 2px solid rgba(255,255,255,0.25);
+  border-top-right-radius: 120px;
+  transform: rotate(18deg);
+}
+
+/* Pushes the main page content down below the fixed elements/top section. */
+main {
+  padding-top: 100px;
+}
+
+/* ============================================
+   BACK BUTTON (sticky, top-left)
+   ============================================ */
+/* Fixed back button that stays visible in the top-left corner.
+   backdrop-filter adds the frosted glass look. */
+.back-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  padding: 10px 18px 10px 14px;
+  text-decoration: none;
+  color: #1a1714;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* Hover state makes the button feel interactive. */
+.back-btn:hover {
+  background: #fff;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+/* ============================================
+   SIDE NAV (sticky, right)
+   ============================================ */
+/* Fixed side navigation placed vertically on the right side of the page. */
+.side-nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+/* Small label above the nav links. */
+.side-nav-label {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #c4963a;
+  margin-bottom: 8px;
+  text-align: right;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Removes default bullets and stacks nav items vertically. */
+.side-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: flex-end;
+}
+
+/* Individual navigation links.
+   row-reverse places the dot on the outside/right. */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.25s, transform 0.25s;
+  flex-direction: row-reverse;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Hover effect for nav links. */
+.nav-link:hover {
+  color: #1a1714;
+  transform: scale(1.05);
+}
+
+/* Circular dot next to each side nav link. */
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  transition: background 0.25s, transform 0.25s;
+  flex-shrink: 0;
+}
+
+/* Active/current section link color. */
+.nav-link.active {
+  color: #c4963a;
+}
+
+/* Fills and enlarges the active nav dot. */
+.nav-link.active .nav-dot {
+  background: currentColor;
+  transform: scale(1.3);
+}
+
+/* ============================================
+        COUNTRY SECTION
+   ============================================ */
+/* Adds spacing below each country block. */
+.country-section {
+  padding-bottom: 100px;
+}
+
+/* ============================================
+          FLAG BANNER
+   ============================================ */
+/* Top visual banner for each country section. */
+.flag-banner {
+  position: relative;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+/* China section flag background */
+.china-flag {
+  background-color: #EE1C25;
+  background-image: url('cflag.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: contain;
+}
+
+/* India flag uses stripes plus an image layer. */
+.india-flag {
+  background-image: 
+    linear-gradient(
+      to bottom,
+      #FF9933 0%,
+      #FF9933 33.33%,
+      #FFFFFF 33.33%,
+      #FFFFFF 66.66%,
+      #138808 66.66%,
+      #138808 100%
+    ),
+    url('iflag.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, left 30px center;
+  background-size: 100% 100%, 220px auto;
+}
+
+/* Japan section flag background */
+.japan-flag {
+  background-color: #FFFFFF;
+  background-image: url('jflag.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: contain;
+}
+
+/* Korea section flag background */
+.korea-flag {
+  background-color: #FFFFFF;
+  background-image: url('kflag.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: contain;
+}
+
+/* Taiwan section flag background */
+.taiwan-flag {
+  background-color: #FE0000;
+  background-image: url('tflag.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: contain;
+}
+
+/* Turkey section flag background */
+.turkey-flag {
+  background-color: #CC0000;
+  background-image: url('tuflag.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: contain;
+}
+
+/* Soft overlay placed on top of flag backgrounds
+   so text is easier to read. */
+.flag-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(250, 248, 244, 0.1) 0%,
+    rgba(250, 248, 244, 0.05) 40%,
+    rgba(250, 248, 244, 0.6) 100%
+  );
+}
+
+/* Text container inside the flag banner. */
+.flag-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* Large country name heading. */
+.country-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 7vw, 70px);
+  font-weight: 700;
+  color: #1a1714;
+  line-height: 1;
+  margin-bottom: 35px;
+  margin-top: 15px;
+}
+
+/* Country subtitle/tagline.
+   Uses a moving gradient clipped into the text itself. */
+.country-tagline {
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.01em;
+  color: #c4963a;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(
+    120deg,
+    #c4963a 0%,
+    #8b0000 25%,
+    #c62828 45%,
+    #ffffff 65%,
+    #c4963a 85%,
+    #8b0000 100%
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: auroraShift 20s ease-in-out infinite;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.48);
+}
+
+/* Animation that shifts the gradient around inside the country tagline text. */
+@keyframes auroraShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ============================================
+   DISHES GRID
+   ============================================ */
+/* Grid layout for the dish cards.
+   auto-fit lets the cards wrap nicely depending on screen width. */
+.dishes-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 0 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+
+/* ============================================
+   DISH CARD
+   ============================================ */
+/* Main dish card container.
+   Fixed height keeps card sizes consistent.
+   overflow-y: auto allows the card itself to scroll if content gets too tall. */
+.dish-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 26px;
+  border: 1px solid rgba(0,0,0,0.07);
+  transition: transform 0.25s, box-shadow 0.45s;
+  display: flex;
+  flex-direction: column;
+  height: 660px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Slight lift/glow on hover. */
+.dish-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+}
+
+/* Top part of card with number and title area. */
+.dish-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+/* Small decorative dish number. */
+.dish-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #c4963a;
+  letter-spacing: 0.05em;
+  padding-top: 4px;
+  flex-shrink: 0;
+  min-width: 28px;
+}
+
+/* Name of the dish. */
+.dish-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1714;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+/* Small location/origin label under the dish name. */
+.dish-origin {
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Main image for each dish card.
+   object-fit: cover fills the box neatly without stretching. */
+.dish-photo {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+
+/* Inner grid for ingredients, equipment, and about sections. */
+.dish-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 44px;
+  row-gap: 22px;
+  align-items: start;
+  flex: 1;
+}
+
+/* Ingredients stays on the left and spans two rows. */
+.dish-sections > .dish-section:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+/* Equipment goes in the top-right area. */
+.dish-sections > .dish-section:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 150px;
+}
+
+/* About section sits under equipment on the right. */
+.dish-sections > .dish-section:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: 0;
+  align-self: start;
+}
+
+/* Paragraph styling for the About text. */
+.about-text {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #3a3530;
+  max-width: 260px;
+}
+
+/* Slight spacing tweak when about text appears inside a dish section. */
+.dish-section .about-text {
+  margin-top: 0.1rem;
+}
+
+/* Shared font styling for text-based content inside the dish card. */
+.about-text,
+.ingredient-list li,
+.steps li {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: inherit;
+}
+
+/* Small uppercase heading for Ingredients / Equipment / About labels. */
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #c4963a;
+  margin-bottom: 14px;
+}
+
+/* Ingredients */
+/* Removes bullets and stacks ingredients vertically. */
+.ingredient-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Individual ingredient line item. */
+.ingredient-list li {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: #3a3530;
+  line-height: 1.55;
+  padding-left: 18px;
+  position: relative;
+}
+
+/* Adds a decorative dash before each ingredient. */
+.ingredient-list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #c4963a;
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* Equipment */
+/* Numbered vertical list for equipment or steps. */
+.steps {
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Each item increases the custom counter number. */
+.steps li {
+  counter-increment: step;
+  font-size: 13.5px;
+  color: #3a3530;
+  padding-left: 30px;
+  position: relative;
+  line-height: 1.55;
+}
+
+/* Shows the custom counter number before each item. */
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: #c4963a;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+/* Container for the recipe link button area. */
+.dish-recipe-link {
+  text-align: right;
+  margin-top: 18px;
+  padding-top: 8px;
+  flex-shrink: 0;
+}
+
+/* Styled recipe link button.
+   position: relative is needed for the glow pseudo-elements. */
+.dish-recipe-link a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  text-decoration: none;
+  color: #c4963a;
+  font-family: 'Playfair Display', serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  border-radius: 999px;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Background glow layer for the recipe button. */
+.dish-recipe-link a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #c4963a, #e7c878, #c4963a);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+/* Blurred glow behind the recipe button. */
+.dish-recipe-link a::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(90deg, #c4963a, #e7c878, #c4963a);
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -2;
+}
+
+/* Hover effect changes text color and slightly enlarges the button. */
+.dish-recipe-link a:hover {
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Makes the hidden glow layers appear on hover. */
+.dish-recipe-link a:hover::before,
+.dish-recipe-link a:hover::after {
+  opacity: 1;
+}
+
+/* nicer scrollbar */
+/* Custom scrollbar width inside the scrolling dish card. */
+.dish-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Keeps scrollbar track invisible/clean. */
+.dish-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Gold scrollbar thumb to match site colors. */
+.dish-card::-webkit-scrollbar-thumb {
+  background: rgba(196, 150, 58, 0.45);
+  border-radius: 999px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+/* Tablet and smaller:
+   turns the 2-column dish grid into 1 column
+   and lets cards grow naturally instead of staying fixed height. */
+@media (max-width: 900px) {
+  .dishes-grid {
+    padding: 0 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .dish-card {
+    height: auto;
+    overflow: visible;
+  }
+
+  .dish-sections {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 20px;
+  }
+
+  .dish-sections > .dish-section:nth-child(1),
+  .dish-sections > .dish-section:nth-child(2),
+  .dish-sections > .dish-section:nth-child(3) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  /* Hides side nav on smaller screens to save space. */
+  .side-nav {
+    display: none;
+  }
+
+  /* Turns back button into a more compact circle. */
+  .back-btn {
+    padding: 10px 12px;
+    border-radius: 50%;
+  }
+}
+
+/* Smaller phone screens:
+   reduce banner/image/title sizes for better fit. */
+@media (max-width: 600px) {
+  .flag-banner {
+    height: 240px;
+  }
+
+  .country-title {
+    font-size: 40px;
+  }
+
+  .dish-card {
+    padding: 24px;
+  }
+
+  .dish-photo {
+    height: 260px;
+  }
+}
+
+/* Adjust decorative banner elements on medium/small screens. */
+@media (max-width: 900px) {
+  .banner-sun {
+    width: 190px;
+    height: 190px;
+    right: 30px;
+    top: -30px;
+  }
+
+  .banner-orb-1,
+  .banner-orb-2,
+  .banner-orb-3 {
+    opacity: 0.6;
+  }
+
+  .banner-leaf-left,
+  .banner-leaf-right {
+    display: none;
+  }
+}
+
+/* Further simplify banner on very small screens. */
+@media (max-width: 600px) {
+  .banner {
+    height: 320px;
+    padding: 20px;
+  }
+
+  .banner-tagline {
+    font-size: 16px;
+  }
+
+  .banner-orb-2,
+  .banner-orb-3 {
+    display: none;
+  }
+}
+
+/* ============================================
+   BANNER ANIMATIONS
+   ============================================ */
+
+/* Assigns animation to the glowing sun. */
+.banner-sun {
+  animation: bannerSunPulse 7s ease-in-out infinite;
+}
+
+/* Assigns floating animations to each orb. */
+.banner-orb-1 {
+  animation: bannerFloatOne 8s ease-in-out infinite;
+}
+
+.banner-orb-2 {
+  animation: bannerFloatTwo 10s ease-in-out infinite;
+}
+
+.banner-orb-3 {
+  animation: bannerFloatThree 9s ease-in-out infinite;
+}
+
+/* Assigns drifting animation to the wave. */
+.banner-wave {
+  animation: bannerWaveDrift 12s ease-in-out infinite;
+}
+
+/* Makes the sun slowly grow/shrink and fade slightly. */
+@keyframes bannerSunPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
+
+/* Floating animation for orb 1. */
+@keyframes bannerFloatOne {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(4px);
+  }
+}
+
+/* Floating animation for orb 2. */
+@keyframes bannerFloatTwo {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(6px) translateX(-5px);
+  }
+}
+
+/* Floating animation for orb 3. */
+@keyframes bannerFloatThree {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-6px) translateX(6px);
+  }
+}
+
+/* Gentle side-to-side drift for the banner wave. */
+@keyframes bannerWaveDrift {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateX(10px);
+    opacity: 0.58;
+  }
+}
+
+/* AUDIO */
+/* Wraps audio player and centers it below the country heading. */
+.audio-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 5px auto 0;
+}
+
+/* Main custom audio player box. */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 320px;
+  padding: 12px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Round play button styling. */
+.play-btn {
+  border: none;
+  background: linear-gradient(to right, #8b0000, #c62828);
+  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Hover effect for play button. */
+.play-btn:hover {
+  transform: scale(1.06);
+  filter: brightness(1.08);
+}
+
+/* Text label shown beside the audio controls. */
+.audio-label {
+  color: black;
+  font-size: 14px;
+  min-width: 72px;
+  text-align: left;
+}
+
+/* Progress slider styling. accent-color changes the slider highlight color. */
+.audio-progress {
+  flex: 1;
+  accent-color: #c4963a;
+  cursor: pointer;
+}
+
+/* Hides the default browser audio element if you are using a custom one. */
+.country-audio {
+  display: none;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+/* Footer layout with logo and centered text. */
+.page-footer {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0)),
+    linear-gradient(to right, #7a0000, #b71c1c, #c62828);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: rgba(250, 248, 244, 0.7);
+  padding: 10px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.footer-logo {
+  width: 150px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.footer-content {
+  text-align: center;
+  flex: 1;
+}
+
+.footer-content p {
+  margin: 4px 0;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+
+.footer-content strong {
+  color: rgba(250, 248, 244, 0.9);
+}
+
+/* Footer email link styled like recipe button */
+.footer-content a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  text-decoration: none;
+  color: #c4963a;
+  font-family: 'Playfair Display', serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  border-radius: 999px;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Glow background */
+.footer-content a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #c4963a, #e7c878, #c4963a);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+/* Blur glow */
+.footer-content a::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(90deg, #c4963a, #e7c878, #c4963a);
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -2;
+}
+
+/* Hover effect */
+.footer-content a:hover {
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.footer-content a:hover::before,
+.footer-content a:hover::after {
+  opacity: 1;
+}
+
+/* Makes bold text in the footer slightly brighter. */
+.page-footer strong {
+  color: rgba(250, 248, 244, 0.75);
+  font-weight: 500;
+}
+
+/* Footer paragraph text centered and allowed to stretch. */
+.page-footer p {
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+/* Logo image styling.
+   object-fit: contain makes sure the full logo stays visible without cropping. */
+.logo {
+  width: 88px;
+  height: 72px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  flex-shrink: 0;
+}
