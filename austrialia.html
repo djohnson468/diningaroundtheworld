@@ -1,49 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<style>
-  footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 10px 20px;
-  }
-  .footer-logo {
-    width: 150px;
-    opacity: 0.9;
-    height: auto;
-    margin-right: 15px;
-  }
-  .footer-content {
-    flex: 1;
-    text-align: center;
-  }
-</style>
+  <style>
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 10px 20px;
+    }
+
+    .footer-logo {
+      width: 150px;
+      opacity: 0.9;
+      height: auto;
+      margin-right: 15px;
+    }
+
+    .footer-content {
+      flex: 1;
+      text-align: center;
+    }
+
+    /* --- Pronunciation Button --- */
+    .pronounce-btn {
+      background: none;
+      border: 1.5px solid var(--green-pale, #9AB88A);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      margin-left: 10px;
+      transition: background 0.2s, transform 0.2s, border-color 0.2s;
+      position: relative;
+      top: -2px;
+    }
+
+    .pronounce-btn:hover {
+      background: var(--green-faint, #D4E8C8);
+      transform: scale(1.1);
+      border-color: var(--green-mid, #3B5C2F);
+    }
+
+    .pronounce-btn:active {
+      transform: scale(0.95);
+    }
+
+    .pronounce-btn.speaking {
+      background: var(--green-faint, #D4E8C8);
+      border-color: var(--green-mid, #3B5C2F);
+      animation: pulse-speak 0.8s ease infinite;
+    }
+
+    .pronounce-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--green-mid, #3B5C2F);
+    }
+
+    @keyframes pulse-speak {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.12);
+      }
+    }
+  </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oceania & Australia Dishes</title>
   <link rel="stylesheet" href="newstyle.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
 </head>
+
 <body>
 
-  <a href="home.html" class="back-btn">← Back to World Map</a>
+  <!-- Back Button -->
+  <a href="index.html" class="back-btn">← Back to World Map</a>
 
+  <!-- Vertical Nav -->
   <nav class="side-nav">
     <p class="side-nav-label">Navigate</p>
     <ul>
       <li><a href="#AU" class="nav-link active">
-        <span class="nav-dot"></span>Australia</a>
+          <span class="nav-dot"></span>Australia</a>
       </li>
       <li><a href="#NZ" class="nav-link">
-        <span class="nav-dot"></span>New Zealand</a>
+          <span class="nav-dot"></span>New Zealand</a>
       </li>
       <li><a href="#FJ" class="nav-link">
-        <span class="nav-dot"></span>Fiji</a>
-      </li>      
+          <span class="nav-dot"></span>Fiji</a>
+      </li>
     </ul>
   </nav>
 
+  <!-- Banner -->
   <header class="banner">
     <div class="banner-center">
       <p class="banner-eyebrow">Coastal Flavours &amp; Island Heritage</p>
@@ -52,10 +113,15 @@
     </div>
   </header>
 
+
   <main class="main-cont">
 
+
+    <!------------------------ AU: CARDS ----------------------------->
     <section id="AU" class="country-section">
-      <div class="flag-banner we-flag"> <div class="flag-overlay"></div>
+
+      <div class="flag-banner we-flag">
+        <div class="flag-overlay"></div>
         <div class="flag-content">
           <span class="flag-emoji">🇦🇺</span>
           <h2 class="country-title">Australia</h2>
@@ -64,22 +130,35 @@
       </div>
 
       <div class="dishes-grid">
+
+        <!------- Aussie Meat Pie ------->
         <article class="dish-card">
           <div class="dish-header">
-            <h3 class="dish-name">Aussie Meat Pie</h3>
+            <h3 class="dish-name">Aussie Meat Pie
+              <button class="pronounce-btn" data-pronounce="Aussie Meat Pie" title="Hear pronunciation">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                </svg>
+              </button>
+            </h3>
             <p class="dish-origin">Australia</p>
           </div>
           <img class="dish-photo" src="dish-images/meat-pie.jpg" alt="Australian Meat Pie">
           <div class="dish-sections">
             <h4 class="section-label">Ingredients</h4>
             <ul class="ingredient-list">
-              <b><p style="color:var(--green-dark);">For Filling</p></b>
+              <b>
+                <p style="color:var(--green-dark);">For Filling</p>
+              </b>
               <li>Ground Beef</li>
               <li>Onion (finely chopped)</li>
               <li>Beef Stock</li>
               <li>Worcestershire Sauce</li>
               <li>Cornstarch (for thickening)</li>
-              <b><p style="color:var(--green-dark);">For Pastry</p></b>
+              <b>
+                <p style="color:var(--green-dark);">For Pastry</p>
+              </b>
               <li>Shortcrust Pastry (base)</li>
               <li>Puff Pastry (lid)</li>
               <li>Egg wash</li>
@@ -98,8 +177,13 @@
       </div>
     </section>
 
+
+
+    <!------------------------ NZ: CARDS ----------------------------->
     <section id="NZ" class="country-section">
-      <div class="flag-banner ne-flag"> <div class="flag-overlay"></div>
+
+      <div class="flag-banner ne-flag">
+        <div class="flag-overlay"></div>
         <div class="flag-content">
           <span class="flag-emoji">🇳🇿</span>
           <h2 class="country-title">New Zealand</h2>
@@ -108,9 +192,18 @@
       </div>
 
       <div class="dishes-grid">
+
+        <!------- Hāngī ------->
         <article class="dish-card">
           <div class="dish-header">
-            <h3 class="dish-name">Hāngī</h3>
+            <h3 class="dish-name">Hāngī
+              <button class="pronounce-btn" data-pronounce="Hahng-ee" title="Hear pronunciation">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                </svg>
+              </button>
+            </h3>
             <p class="dish-origin">New Zealand</p>
           </div>
           <img class="dish-photo" src="dish-images/hangi.jpg" alt="Māori Hāngī">
@@ -137,8 +230,13 @@
       </div>
     </section>
 
+
+
+    <!------------------------ FJ: CARDS ----------------------------->
     <section id="FJ" class="country-section">
-      <div class="flag-banner se-flag"> <div class="flag-overlay"></div>
+
+      <div class="flag-banner se-flag">
+        <div class="flag-overlay"></div>
         <div class="flag-content">
           <span class="flag-emoji">🇫🇯</span>
           <h2 class="country-title">Fiji</h2>
@@ -147,9 +245,18 @@
       </div>
 
       <div class="dishes-grid">
+
+        <!------- Kokoda ------->
         <article class="dish-card">
           <div class="dish-header">
-            <h3 class="dish-name">Kokoda</h3>
+            <h3 class="dish-name">Kokoda
+              <button class="pronounce-btn" data-pronounce="Ko-kohn-da" title="Hear pronunciation">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                </svg>
+              </button>
+            </h3>
             <p class="dish-origin">Fiji</p>
           </div>
           <img class="dish-photo" src="dish-images/kokoda.jpg" alt="Fijian Kokoda">
@@ -188,6 +295,7 @@
   </footer>
 
   <script>
+    // --- Side nav scroll tracking ---
     const sections = document.querySelectorAll('.country-section');
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -211,6 +319,28 @@
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+
+    // --- Pronunciation buttons ---
+    document.querySelectorAll('.pronounce-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const text = btn.getAttribute('data-pronounce');
+        // Cancel any ongoing speech first
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.85;   // slightly slower for clarity
+        utterance.pitch = 1;
+        utterance.lang = 'en';   // base language
+
+        // Visual feedback while speaking
+        btn.classList.add('speaking');
+        utterance.onend = () => btn.classList.remove('speaking');
+        utterance.onerror = () => btn.classList.remove('speaking');
+
+        window.speechSynthesis.speak(utterance);
+      });
+    });
   </script>
 </body>
+
 </html>
