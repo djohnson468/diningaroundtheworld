@@ -19,10 +19,141 @@ function hideTooltip() {
 
 /* Clickable Countries */
 
+const dominicanrepublic = document.getElementById("CM");
+if (cameroon) { cameroon.addEventListener("click", () => { 
+  window.location.href = "african-dishes.html#cameroon"; 
+ }); 
+
+  cameroon.addEventListener("mouseenter", (e) => {
+    showTooltip(e, "Cameroon");
+  });
+
+  cameroon.addEventListener("mousemove", (e) => {
+    showTooltip(e, "Cameroon");
+  });
+
+  cameroon.addEventListener("mouseleave", hideTooltip);
+
+}
+
+// Cameroon Click
+
+const cameroon = document.getElementById("CM");
+if (cameroon) { cameroon.addEventListener("click", () => { 
+  window.location.href = "african-dishes.html#cameroon"; 
+ }); 
+
+  cameroon.addEventListener("mouseenter", (e) => {
+    showTooltip(e, "Cameroon");
+  });
+
+  cameroon.addEventListener("mousemove", (e) => {
+    showTooltip(e, "Cameroon");
+  });
+
+  cameroon.addEventListener("mouseleave", hideTooltip);
+
+}
+  
+// Equatorial Guinea Click
+
+const equatorialguinea = document.getElementById("GQ");
+if (equatorialguinea) { equatorialguinea.addEventListener("click", () => { 
+  window.location.href = "african-dishes.html#equatorial-guinea"; 
+ }); 
+
+  equatorialguinea.addEventListener("mouseenter", (e) => {
+    showTooltip(e, "Equatorial Guinea");
+  });
+
+  equatorialguinea.addEventListener("mousemove", (e) => {
+    showTooltip(e, "Equatorial Guinea");
+  });
+
+  equatorialguinea.addEventListener("mouseleave", hideTooltip);
+
+}  
+
+// Ethiopa Click
+
+const ethiopa = document.getElementById("ET");
+if (ethiopa) { ethiopa.addEventListener("click", () => { 
+  window.location.href = "african-dishes.html#ethiopia"; 
+ }); 
+
+  ethiopa.addEventListener("mouseenter", (e) => {
+    showTooltip(e, "Ethiopia");
+  });
+
+  ethiopa.addEventListener("mousemove", (e) => {
+    showTooltip(e, "Ethiopia");
+  });
+
+  ethiopa.addEventListener("mouseleave", hideTooltip);
+
+}
+
+// Ghana Click
+
+const ghana = document.getElementById("GH");
+if (ghana) { ghana.addEventListener("click", () => { 
+  window.location.href = "african-dishes.html#ghana"; 
+ }); 
+
+  ghana.addEventListener("mouseenter", (e) => {
+    showTooltip(e, "Ghana");
+  });
+
+  ghana.addEventListener("mousemove", (e) => {
+    showTooltip(e, "Ghana");
+  });
+
+  ghana.addEventListener("mouseleave", hideTooltip);
+
+}
+  
+  
+// Nigeria Click
+
+const nigeria = document.getElementById("NG");
+if (nigeria) { nigeria.addEventListener("click", () => { 
+  window.location.href = "african-dishes.html#nigeria"; 
+ }); 
+
+  nigeria.addEventListener("mouseenter", (e) => {
+    showTooltip(e, "Nigeria");
+  });
+
+  nigeria.addEventListener("mousemove", (e) => {
+    showTooltip(e, "Nigeria");
+  });
+
+  nigeria.addEventListener("mouseleave", hideTooltip);
+
+}
+
+
+// South Africa Click
+
+const southafrica = document.getElementById("ZA");
+if (southafrica) { southafrica.addEventListener("click", () => { 
+  window.location.href = "african-dishes.html#south-africa"; 
+ }); 
+
+  southafrica.addEventListener("mouseenter", (e) => {
+    showTooltip(e, "South Africa");
+  });
+
+  southafrica.addEventListener("mousemove", (e) => {
+    showTooltip(e, "South Africa");
+  });
+
+  southafrica.addEventListener("mouseleave", hideTooltip);
+
+}
+
 
 /* All Tooltip (NON-CLICKABLE) Country Names */
-
-
 
 
 /* Classes */
@@ -175,22 +306,6 @@ if (burundi) {
 
 }
 
-const cameroon = document.getElementById("CM");
-
-if (cameroon) {
-
-  cameroon.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Cameroon");
-  });
-
-  cameroon.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Cameroon");
-  });
-
-  cameroon.addEventListener("mouseleave", hideTooltip);
-
-}
-
 const centralafricanrepublic = document.getElementById("CF");
 
 if (centralafricanrepublic) {
@@ -206,7 +321,6 @@ if (centralafricanrepublic) {
   centralafricanrepublic.addEventListener("mouseleave", hideTooltip);
 
 }
-
 
 const chad = document.getElementById("TD");
 
@@ -288,21 +402,6 @@ if (egypt) {
 
 }
 
-const equatorialguinea = document.getElementById("GQ");
-
-if (equatorialguinea) {
-
-  equatorialguinea.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Equatorial Guinea");
-  });
-
-  equatorialguinea.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Equatorial Guinea");
-  });
-
-  equatorialguinea.addEventListener("mouseleave", hideTooltip);
-
-}
 
 const eritrea = document.getElementById("ER");
 
@@ -335,21 +434,6 @@ if (eswatini) {
   eswatini.addEventListener("mouseleave", hideTooltip);
 
 }
-const ethiopa = document.getElementById("ET");
-
-if (ethiopa) {
-
-  ethiopa.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Ethiopia");
-  });
-
-  ethiopa.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Ethiopia");
-  });
-
-  ethiopa.addEventListener("mouseleave", hideTooltip);
-
-}
 
 const gabon = document.getElementById("GA");
 
@@ -380,23 +464,6 @@ if (gambia) {
   });
 
   gambia.addEventListener("mouseleave", hideTooltip);
-
-}
-
-
-const ghana = document.getElementById("GH");
-
-if (ghana) {
-
-  ghana.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Ghana");
-  });
-
-  ghana.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Ghana");
-  });
-
-  ghana.addEventListener("mouseleave", hideTooltip);
 
 }
 
@@ -640,22 +707,6 @@ if (niger) {
 
 }
 
-const nigeria = document.getElementById("NG");
-
-if (nigeria) {
-
-  nigeria.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Nigeria");
-  });
-
-  nigeria.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Nigeria");
-  });
-
-  nigeria.addEventListener("mouseleave", hideTooltip);
-
-}
-
 const rwanda = document.getElementById("RW");
 
 if (rwanda) {
@@ -717,22 +768,6 @@ if (somalia) {
   });
 
   somalia.addEventListener("mouseleave", hideTooltip);
-
-}
-
-const southafrica = document.getElementById("ZA");
-
-if (southafrica) {
-
-  southafrica.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "South Africa");
-  });
-
-  southafrica.addEventListener("mousemove", (e) => {
-    showTooltip(e, "South Africa");
-  });
-
-  southafrica.addEventListener("mouseleave", hideTooltip);
 
 }
 
