@@ -19,6 +19,158 @@ function hideTooltip() {
 
 /* Clickable Countries */
 
+// Albania Click
+
+const albania = document.getElementById("AL"); 
+ if (albania) { albania.addEventListener("click", () => { 
+  window.location.href = "EuropeanDishes.html#EE"; 
+ }); 
+
+albania.addEventListener("mouseenter", (e) => { 
+showTooltip(e, "Albania"); 
+}); 
+
+albania.addEventListener("mousemove", (e) => { 
+showTooltip(e, "Albania"); 
+}); 
+
+albania.addEventListener("mouseleave", hideTooltip); 
+
+}
+
+
+// Belgium Click
+
+const belgium = document.getElementById("BE"); 
+ if (belgium) { belgium.addEventListener("click", () => { 
+  window.location.href = "EuropeanDishes.html#WE"; 
+ }); 
+
+belgium.addEventListener("mouseenter", (e) => { 
+showTooltip(e, "Belgium"); 
+}); 
+
+belgium.addEventListener("mousemove", (e) => { 
+showTooltip(e, "Belgium"); 
+}); 
+
+belgium.addEventListener("mouseleave", hideTooltip); 
+
+}
+
+
+// France Click
+
+document.querySelectorAll(".France").forEach(country => { 
+ country.addEventListener("click", () => { 
+  window.location.href = "EuropeanDishes.html#WE"; 
+}); 
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "France"); 
+}); 
+
+country.addEventListener("mousemove", (e) => { 
+ showTooltip(e, "France"); 
+}); 
+
+country.addEventListener("mouseleave", hideTooltip); 
+});
+
+// Greece Click
+
+document.querySelectorAll(".Greece").forEach(country => { 
+ country.addEventListener("click", () => { 
+  window.location.href = "EuropeanDishes.html#SE"; 
+}); 
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "Greece"); 
+}); 
+
+country.addEventListener("mousemove", (e) => { 
+ showTooltip(e, "Greece"); 
+}); 
+
+country.addEventListener("mouseleave", hideTooltip); 
+});
+
+// Italy Click
+
+document.querySelectorAll(".Italy").forEach(country => { 
+ country.addEventListener("click", () => { 
+  window.location.href = "EuropeanDishes.html#SE"; 
+}); 
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "Italy"); 
+}); 
+
+country.addEventListener("mousemove", (e) => { 
+ showTooltip(e, "Italy"); 
+}); 
+
+country.addEventListener("mouseleave", hideTooltip); 
+});
+
+// Norway Click
+
+document.querySelectorAll(".Norway").forEach(country => { 
+ country.addEventListener("click", () => { 
+  window.location.href = "EuropeanDishes.html#NE"; 
+}); 
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "Norway"); 
+}); 
+
+country.addEventListener("mousemove", (e) => { 
+ showTooltip(e, "Norway"); 
+}); 
+
+country.addEventListener("mouseleave", hideTooltip); 
+});
+
+
+// Poland Click
+
+const poland = document.getElementById("PL"); 
+ if (poland) { poland.addEventListener("click", () => { 
+  window.location.href = "EuropeanDishes.html#EE"; 
+ }); 
+
+poland.addEventListener("mouseenter", (e) => { 
+showTooltip(e, "Poland"); 
+}); 
+
+poland.addEventListener("mousemove", (e) => { 
+showTooltip(e, "Poland"); 
+}); 
+
+poland.addEventListener("mouseleave", hideTooltip); 
+
+}
+
+
+// Sweden Click
+
+const sweden = document.getElementById("SE"); 
+ if (sweden) { sweden.addEventListener("click", () => { 
+  window.location.href = "EuropeanDishes.html#NE"; 
+ }); 
+
+sweden.addEventListener("mouseenter", (e) => { 
+showTooltip(e, "Sweden"); 
+}); 
+
+sweden.addEventListener("mousemove", (e) => { 
+showTooltip(e, "Sweden"); 
+}); 
+
+sweden.addEventListener("mouseleave", hideTooltip); 
+
+}
+
 
 /* All Tooltip (NON-CLICKABLE) Country Names */
 
@@ -38,45 +190,6 @@ document.querySelectorAll(".Denmark").forEach(country => {
 
 });
 
-document.querySelectorAll(".France").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "France");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "France");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
-
-document.querySelectorAll(".Greece").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Greece");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Greece");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
-
-document.querySelectorAll(".Italy").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Italy");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Italy");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
-
 document.querySelectorAll(".Malta").forEach(country => {
   country.addEventListener("mouseenter", (e) => {
     showTooltip(e, "Malta");
@@ -90,18 +203,6 @@ document.querySelectorAll(".Malta").forEach(country => {
 
 });
 
-document.querySelectorAll(".Norway").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Norway");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Norway");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
 
 document.querySelectorAll(".United.Kingdom").forEach(country => {
   country.addEventListener("mouseenter", (e) => {
@@ -119,22 +220,6 @@ document.querySelectorAll(".United.Kingdom").forEach(country => {
 
 /* IDs */
 
-
-const albania = document.getElementById("AL");
-
-if (albania) {
-
-  albania.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Albania");
-  });
-
-  albania.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Albania");
-  });
-
-  albania.addEventListener("mouseleave", hideTooltip);
-
-}
 
 const austria = document.getElementById("AT");
 
@@ -165,22 +250,6 @@ if (belarus) {
   });
 
   belarus.addEventListener("mouseleave", hideTooltip);
-
-}
-
-const belgium = document.getElementById("BE");
-
-if (belgium) {
-
-  belgium.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Belgium");
-  });
-
-  belgium.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Belgium");
-  });
-
-  belgium.addEventListener("mouseleave", hideTooltip);
 
 }
 
@@ -344,8 +413,6 @@ if (ireland) {
 
 }
 
-
-
 const kosovo = document.getElementById("XK");
 
 if (kosovo) {
@@ -472,20 +539,6 @@ if (macedonia) {
   macedonia.addEventListener("mouseleave", hideTooltip);
 }
 
-const poland = document.getElementById("PL");
-
-if (poland) {
-
-  poland.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Poland");
-  });
-
-  poland.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Poland");
-  });
-
-  poland.addEventListener("mouseleave", hideTooltip);
-}
 
 const portugal = document.getElementById("PT");
 
@@ -575,21 +628,6 @@ if (spain) {
   });
 
   spain.addEventListener("mouseleave", hideTooltip);
-}
-
-const sweden = document.getElementById("SE");
-
-if (sweden) {
-
-  sweden.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Sweden");
-  });
-
-  sweden.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Sweden");
-  });
-
-  sweden.addEventListener("mouseleave", hideTooltip);
 }
 
 const switzerland = document.getElementById("CH");
