@@ -9,11 +9,12 @@
 </head>
 <body>
 
-  <!-- Back Button -->
+  <!------------------------------- Back Button ------------------------------------->
   
     <a href="index.html" class="back-btn">← Back to World Map</a>
 
-  <!-- Vertical Nav -->
+  <!----------------------------- Vertical Nav ------------------------->
+
   <nav class="side-nav">
     <p class="side-nav-label">Navigate</p>
     <ul>
@@ -46,198 +47,17 @@
   </nav>
 
   
- <!-- Banner -->
-    <header class="banner">
- 
-    <!-- Airmail stripe borders (top & bottom) -->
-    <div class="airmail-top"></div>
-    <div class="airmail-bottom"></div>
- 
-    <!-- Outer postcard frame -->
-    <div class="banner-frame"></div>
- 
-    <!-- Inner double-line frame -->
-    <div class="banner-frame-inner"></div>
- 
-    <!-- Ambient blue glow -->
-    <div class="banner-glow"></div>
- 
-    <!-- Paper grain texture overlay -->
-    <div class="paper-grain"></div>
- 
-    <!-- ── CORNER STAMPS ── -->
-    <div class="stamp stamp--tl">
-      <div class="stamp-inner">
-        <div class="stamp-flag">&#127463;&#127480;</div>
-        <div class="stamp-country">Bahamas</div>
-        <div class="stamp-value">5¢</div>
-      </div>
-      <div class="stamp-perforation"></div>
-    </div>
- 
-    <div class="stamp stamp--tr">
-      <div class="stamp-inner">
-        <div class="stamp-flag">&#127464;&#127462;</div>
-        <div class="stamp-country">Canada</div>
-        <div class="stamp-value">5¢</div>
-      </div>
-      <div class="stamp-perforation"></div>
-    </div>
- 
-    <div class="stamp stamp--bl">
-      <div class="stamp-inner">
-        <div class="stamp-flag">&#127471;&#127474;</div>
-        <div class="stamp-country">Jamaica</div>
-        <div class="stamp-value">5¢</div>
-      </div>
-      <div class="stamp-perforation"></div>
-    </div>
- 
-    <div class="stamp stamp--br">
-      <div class="stamp-inner">
-        <div class="stamp-flag">&#127481;&#127481;</div>
-        <div class="stamp-country">T&amp;T</div>
-        <div class="stamp-value">5¢</div>
-      </div>
-      <div class="stamp-perforation"></div>
-    </div>
- 
-    <!-- ── POSTMARK CIRCLE (top right area) ── -->
-    <div class="postmark" aria-hidden="true">
-      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <!-- Outer ring -->
-        <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="2.5"/>
-        <!-- Inner ring -->
-        <circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="1"/>
-        <!-- Cancel lines -->
-        <line x1="6" y1="60" x2="114" y2="60" stroke="currentColor" stroke-width="2"/>
-        <line x1="6" y1="52" x2="114" y2="52" stroke="currentColor" stroke-width="1.5"/>
-        <line x1="6" y1="68" x2="114" y2="68" stroke="currentColor" stroke-width="1.5"/>
-        <!-- Text on arc — top -->
-        <path id="arc-top" d="M 15,60 A 45,45 0 0,1 105,60" fill="none"/>
-        <text font-size="10" font-family="'Special Elite', monospace" letter-spacing="2">
-          <textPath href="#arc-top" startOffset="8%">NORTH AMERICA</textPath>
-        </text>
-        <!-- Text on arc — bottom -->
-        <path id="arc-bot" d="M 15,60 A 45,45 0 0,0 105,60" fill="none"/>
-        <text font-size="9" font-family="'Special Elite', monospace" letter-spacing="1.5">
-          <textPath href="#arc-bot" startOffset="14%">EST. MCMXCIX</textPath>
-        </text>
-      </svg>
-    </div>
- 
-    <!-- ── COMPASS ROSE (bottom left) ── -->
-    <div class="compass" aria-hidden="true">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Cardinal spokes -->
-        <line x1="50" y1="8"  x2="50" y2="92" stroke="currentColor" stroke-width="1"/>
-        <line x1="8"  y1="50" x2="92" y2="50" stroke="currentColor" stroke-width="1"/>
-        <!-- Diagonal spokes -->
-        <line x1="20" y1="20" x2="80" y2="80" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
-        <line x1="80" y1="20" x2="20" y2="80" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
-        <!-- North arrow (filled) -->
-        <polygon points="50,8 44,50 50,44 56,50" fill="currentColor"/>
-        <!-- South arrow (outline) -->
-        <polygon points="50,92 44,50 50,56 56,50" fill="none" stroke="currentColor" stroke-width="1"/>
-        <!-- Centre circle -->
-        <circle cx="50" cy="50" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="50" cy="50" r="2" fill="currentColor"/>
-        <!-- Cardinal labels -->
-        <text x="50" y="5"  text-anchor="middle" font-size="8" font-family="'Special Elite'" fill="currentColor" font-weight="bold">N</text>
-        <text x="50" y="99" text-anchor="middle" font-size="7" font-family="'Special Elite'" fill="currentColor">S</text>
-        <text x="96" y="53" text-anchor="middle" font-size="7" font-family="'Special Elite'" fill="currentColor">E</text>
-        <text x="4"  y="53" text-anchor="middle" font-size="7" font-family="'Special Elite'" fill="currentColor">W</text>
-      </svg>
-    </div>
- 
-    <!-- ── DOTTED TRAVEL LINE (decorative) ── -->
-    <div class="travel-line" aria-hidden="true">
-      <svg viewBox="0 0 400 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 0,30 Q 100,10 200,30 Q 300,50 400,30"
-              fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-dasharray="4 6" opacity="0.5"/>
-        <!-- Tiny plane icon at end -->
-        <text x="388" y="34" font-size="14" fill="currentColor" opacity="0.7">✈</text>
-      </svg>
-    </div>
- 
-    <!-- ── PHOTO PLACEHOLDERS ── -->
-    <div class="banner-photo banner-photo--left">
-      <div class="photo-inner">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="1.2"
-             stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <circle cx="8.5" cy="8.5" r="1.5"/>
-          <path d="M21 15l-5-5L5 21"/>
-        </svg>
-        <span>Photo</span>
-      </div>
-    </div>
- 
-    <!-- ── CENTRE CONTENT ── -->
-    <div class="banner-center">
- 
-      <!-- Small flag row -->
-      <div class="flag-row" aria-label="Featured countries">
-        <span title="Bahamas">&#127463;&#127480;</span>
-        <span title="Barbados">&#127463;&#127463;</span>
-        <span title="Canada">&#127464;&#127462;</span>
-        <span title="Dominican Republic">&#127465;&#127476;</span>
-        <span title="Jamaica">&#127471;&#127474;</span>
-        <span title="Mexico">&#127474;&#127485;</span>
-        <span title="Puerto Rico">&#127477;&#127479;</span>
-        <span title="Trinidad &amp; Tobago">&#127481;&#127481;</span>
-      </div>
- 
-      <p class="banner-eyebrow">Traditional Flavours &amp; Heritage Cooking</p>
- 
-      <h1 class="banner-title">
-        <em>North</em><br/>America
-      </h1>
- 
-      <div class="banner-divider" aria-hidden="true">
-        <span class="divider-line"></span>
-        <span class="divider-diamond"></span>
-        <span class="divider-line"></span>
-      </div>
- 
-      <p class="banner-tagline">
-        Exploring cultural dishes across eight nations of the Caribbean &amp; continent
-      </p>
- 
-      <!-- Destination tags -->
-      <div class="destination-tags">
-        <span>Bahamas</span>
-        <span>Barbados</span>
-        <span>Canada</span>
-        <span>Dominican Republic</span>
-        <span>Jamaica</span>
-        <span>Mexico</span>
-        <span>Puerto Rico</span>
-        <span>Trinidad &amp; Tobago</span>
-      </div>
- 
-    </div>
- 
-    <!-- ── PHOTO PLACEHOLDER RIGHT ── -->
-    <div class="banner-photo banner-photo--right">
-      <div class="photo-inner">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="1.2"
-             stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <circle cx="8.5" cy="8.5" r="1.5"/>
-          <path d="M21 15l-5-5L5 21"/>
-        </svg>
-        <span>Photo</span>
-      </div>
-    </div>
- 
-  </header>
+ <!-------------------------------------------- Banner ------------------------------>
+ <header class="banner">
+   <div class="banner-inner">
+     <p class="banner-eyebrow"> Dining Around the World </p>
+     <h1 class="banner-title"> North America Dishes</h1>
+     <div class="banner-divider"></div>
+     <p class="banner-tagline"> A journey through comfort, culture, and regional flavors. Discover the dishes that define North America. </p>
+   </div>    
+ </header>
 
-
-  <main>
+ <main>
 
 <!------------------------ BAHAMAS: CARDS ----------------------------->
   <section id="bahamas" class="country-section">
@@ -245,7 +65,7 @@
       <div class="flag-banner bahamas-flag">
         <div class="flag-overlay"></div>
         <div class="flag-content">
-          <span class="flag-emoji" aria-label="Bahamas flag">&#127463;&#127480;</span>
+          <span aria-label="Bahamas flag"></span>
           <h2 class="country-title">Bahamas</h2>
           <p class="country-tagline">Bright citrus, ocean breeze, and island comfort</p>
         </div>
@@ -352,7 +172,7 @@
       <p class="dish-origin">Lunch / Dinner · Light Soup</p>
     </div>
   </div>
-  <img src="bslundin.jpeg" alt="Bahamas Lunch/Dinner: Chicken Souse" class="dish-photo">
+  <img src="bslundin.jpeg" alt="Bahamas Lunch/Dinner: Chicken Souse" class="dish-photo bslundin-img">
   <p class="dish-about">
 	<a href="https://chickenandchive.com/bahamian-chicken-souse/">View full recipe</a>
   </p>
@@ -465,9 +285,9 @@
       <div class="flag-banner barbados-flag">
         <div class="flag-overlay"></div>
         <div class="flag-content">
-          <span class="flag-emoji" aria-label="Barbados flag">&#127463;&#127463;</span>
+          <span aria-label="Barbados flag"></span>
           <h2 class="country-title">Barbados</h2>
-          <p class="country-tagline">Bold heat, fragrant herbs, and the art of balance</p>
+          <p class="country-tagline">Golden bakes, peppered savor, and Bajan soul</p>
         </div>
       </div>
 
@@ -710,9 +530,9 @@
       <div class="flag-banner canada-flag">
         <div class="flag-overlay"></div>
         <div class="flag-content">
-          <span class="flag-emoji" aria-label="Canada flag">&#127464;&#127462;</span>
+          <span aria-label="Canada flag"></span>
           <h2 class="country-title">Canada</h2>
-          <p class="country-tagline">Cozy comfort, rich tradition, and the warmth of home</p>
+          <p class="country-tagline">Hearty comfort, homestyle richness, and fireside warmth</p>
         </div>
       </div>
 
@@ -727,7 +547,7 @@
       <p class="dish-origin">Breakfast · Fried Dough</p>
     </div>
   </div>
-  <img src="cabreakfast.jpg" alt="Canada Breakfast: Toutons" class="dish-photo">
+  <img src="cabreakfast.jpg" alt="Canada Breakfast: Toutons" class="dish-photo cabreakfast-img">
   <p class="dish-about">
 	<a href="https://www.rockrecipes.com/newfoundland-toutons/#mv-creation-178-jtr">View full recipe</a>
   </p>
@@ -930,9 +750,9 @@
       <div class="flag-banner dominican-republic-flag">
         <div class="flag-overlay"></div>
         <div class="flag-content">
-          <span class="flag-emoji" aria-label="Dominican Republic flag">&#127465;&#127476;</span>
+          <span aria-label="Dominican Republic flag"></span>
           <h2 class="country-title">Dominican Republic</h2>
-          <p class="country-tagline">Bold heat, fragrant herbs, and the art of balance</p>
+          <p class="country-tagline">Mashed plantains, savory depth, and everday abundance</p>
         </div>
       </div>
 
@@ -1162,9 +982,9 @@
       <div class="flag-banner jamaica-flag">
         <div class="flag-overlay"></div>
         <div class="flag-content">
-          <span class="flag-emoji" aria-label="Jamaica flag">&#127471;&#127474;</span> <!------- optional: &#127471;&#127474; these are regional indicator letters ----------------->
+          <span aria-label="Jamaica flag"></span> 
           <h2 class="country-title">Jamaica</h2>
-          <p class="country-tagline">Bold heat, fragrant herbs, and the art of balance</p>
+          <p class="country-tagline">Fire and smoke, deep spice, and bold intensity</p>
         </div>
       </div>
 
@@ -1179,7 +999,7 @@
       <p class="dish-origin">Breakfast · National Dish</p>
     </div>
   </div>
-  <img src="jmbreakfast.jpg" alt="Jamaican Breakfast: Ackee and Saltfish" class="dish-photo">
+  <img src="jmbreakfast.jpg" alt="Jamaican Breakfast: Ackee and Saltfish" class="dish-photo jmbreakfast-img">
   <p class="dish-about">
 	<a href="https://jamaicanfoodsandrecipes.com/jamaican-ackee-and-saltfish-recipe/">View full recipe</a>
   </p>
@@ -1403,9 +1223,9 @@
       <div class="flag-banner mexico-flag">
         <div class="flag-overlay"></div>
         <div class="flag-content">
-          <span class="flag-emoji" aria-label="Mexico flag">&#127474;&#127485;</span>  <!------- optional: &#127471;&#127474; these are regional indicator letters ----------------->
+          <span aria-label="Mexico flag"></span>  
           <h2 class="country-title">Mexico</h2>
-          <p class="country-tagline">Bold heat, fragrant herbs, and the art of balance</p>
+          <p class="country-tagline">Layered heat, intricate flavor, and cultural depth</p>
         </div>
       </div>
 
@@ -1640,9 +1460,9 @@
       <div class="flag-banner puerto-rico-flag">
         <div class="flag-overlay"></div>
         <div class="flag-content">
-          <span class="flag-emoji" aria-label="Puerto Rico flag">&#127477;&#127479;</span>
+          <span aria-label="Puerto Rico flag"></span>
           <h2 class="country-title">Puerto Rico</h2>
-          <p class="country-tagline">Bold heat, fragrant herbs, and the art of balance</p>
+          <p class="country-tagline">Delicate sweetness, savory richness, and coastal warmth</p>
         </div>
       </div>
 
@@ -1740,7 +1560,7 @@
       <p class="dish-origin">Lunch / Dinner · Chicken Soup</p>
     </div>
   </div>
-  <img src="prlundin2.jpg" alt="Puerto Rican Lunch/Dinner: Asopao de Pollo" class="dish-photo">
+  <img src="prlundin2.jpg" alt="Puerto Rican Lunch/Dinner: Asopao de Pollo" class="dish-photo prlundin2-img">
   <p class="dish-about">
 	<a href="https://thenoshery.com/asopao-de-pollo-puerto-rican-chicken-and-rice-soup/">View full recipe</a>
   </p>
@@ -1859,9 +1679,9 @@
       <div class="flag-banner trinidad-tobago-flag">
         <div class="flag-overlay"></div>
         <div class="flag-content">
-          <span class="flag-emoji" aria-label="Trinidad and Tobago flag">&#127481;&#127481;</span>
+          <span aria-label="Trinidad and Tobago flag"></span>
           <h2 class="country-title">Trinidad and Tobago</h2>
-          <p class="country-tagline">Bold heat, fragrant herbs, and the art of balance</p>
+          <p class="country-tagline">Vibrant spice, saucy bites, energetic street life</p>
         </div>
       </div>
 
@@ -2123,27 +1943,27 @@
 	 
 
   <script>
-    const sections = document.querySelectorAll('.country-section');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.country-section');	/* Grabs ALL sections/countries */
+    const navLinks = document.querySelectorAll('.nav-link');		/* Grabs ALL nav links on the navbar */
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          const id = entry.target.getAttribute('id');
-          const active = document.querySelector(`.nav-link[href="#${id}"]`);
-          if (active) active.classList.add('active');
+    const observer = new IntersectionObserver((entries) => {		/* "observes" sections/countries as user scrolls, detects which one is on screen */
+      entries.forEach(entry => {					/* for every observed section/country */
+        if (entry.isIntersecting) {					/* "if section is on the screen" */
+          navLinks.forEach(l => l.classList.remove('active'));		/* removes previous highlights */
+          const id = entry.target.getAttribute('id');			/* grabs section's/country's ID */
+          const active = document.querySelector(`.nav-link[href="#${id}"]`);	/* matches nav link to sections/countries */
+          if (active) active.classList.add('active');			/* highlights correct nav item */
         }
       });
-    }, { rootMargin: '-30% 0px -60% 0px' });
+    }, { rootMargin: '-30% 0px -60% 0px' });				/* controls WHEN section becomes "active" (-30 = triggers a little before center, -60 = stops near 											bottom) sooo keeps the highlight smooth instead of sudden jumps */
 
-    sections.forEach(s => observer.observe(s));
+    sections.forEach(s => observer.observe(s));				/* basically looks out for every country section */
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    navLinks.forEach(link => {						/* this sets the loop through the nav links */
+      link.addEventListener('click', e => {				/* when a user clicks */
+        e.preventDefault();						/* stops sudden jumps */
+        const target = document.querySelector(link.getAttribute('href'));	/* find the target section */
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });		/* scrolls smoothly to the top of selected section */
       });
     });
   </script>

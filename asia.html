@@ -14,17 +14,24 @@
   }
   
   .legend-table .explore-link {
-	color: red;
+	color: #000;
 	text-decoration: none;
+	display: inline-block;
+ 	border-radius: 999px;
+	background: transparent;
+	padding: 6px 12px;
+	transition: all 0.25s ease;
   }
-
+ 
+ .legend-table .explore-link:hover {
+	background-color: #b41a09;
+	text-decoration: none;
+	color: white !important;
+	transform: translateY(-1px);
+  }
+  
   .legend-table .explore-link:visited {
-	color: red;
-  }
-
-  .legend-table .explore-link:hover {
-	color: #b41a09;
-	text-decoration: underline;
+	color: #000;
   }
   </style>
 
@@ -1037,27 +1044,27 @@ THE SOFTWARE.
   <tbody>
    <tr>
      <td>China</td>
-     <td class="explore-link">Explore</td>
+     <td><a class="#" class="explore-link">Explore</a></td>
    </tr>
    <tr>
      <td>India</td>
-     <td class="explore-link">Explore</td>
+     <td><a class="#" class="explore-link">Explore</a></td>
    </tr>
    <tr>
      <td>Japan</td>
-     <td class="explore-link">Explore</td>
+     <td><a class="#" class="explore-link">Explore</a></td>
    </tr>
    <tr>
      <td>South Korea</td>
-     <td class="explore-link">Explore</td>
+     <td><a class="#" class="explore-link">Explore</a></td>
    </tr>
    <tr>
      <td>Taiwan</td>
-     <td class="explore-link">Explore</td>
+     <td><a class="#" class="explore-link">Explore</a></td>
    </tr>
    <tr>
      <td>Turkey</td>
-     <td class="explore-link">Explore</td>
+     <td><a class="#" class="explore-link">Explore</a></td>
    </tr>
    </tbody>
    </table>

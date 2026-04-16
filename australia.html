@@ -5,6 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Australia</title>
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+  .legend-table th {
+	background-color: #e6d3b3;
+	color: #5a4632;
+	padding: 10px;
+  }
+  
+  .legend-table .explore-link {
+	color: #000;
+	text-decoration: none;
+	display: inline-block;
+ 	border-radius: 999px;
+	background: transparent;
+	padding: 6px 12px;
+	transition: all 0.25s ease;
+  }
+ 
+ .legend-table .explore-link:hover {
+	background-color: #b35c00;
+	text-decoration: none;
+	color: white !important;
+	transform: translateY(-1px);
+  }
+  
+  .legend-table .explore-link:visited {
+	color: #000;
+  }
+
+  </style>
+
 </head>
 <body>
 
@@ -14,6 +45,8 @@
     <p>Click a country to explore its dishes</p>
   </div>
 
+<div class="continent-content">  
+ <div class="map-panel">
   <div class="australia-map-frame">
     <div class="australia-map-inner">
 
@@ -997,6 +1030,40 @@ THE SOFTWARE.
 
     </div>
   </div>
+ </div>
+
+
+<aside class="legend-card">
+  <h3>Featured Countries</h3>
+
+  <table class="legend-table">
+  <thead>
+  <tr>
+    <th>Country</th>
+    <th>Access</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+     <td>Australia</td>
+     <td><a class="#" class="explore-link">Explore</a>
+   </tr>
+   <tr>
+     <td>Fiji</td>
+     <td><a class="#" class="explore-link">Explore</a>
+   </tr>
+   <tr>
+     <td>New Zealand</td>
+     <td><a class="#" class="explore-link">Explore</a></td>
+   </tr>
+   </tbody>
+   </table>
+
+    <p class="legend-note">
+      Click highlighted countries on the map to explore their cuisines.
+    </p>
+  </aside>
+</div>
 
   <div id="country-tooltip"></div>
 

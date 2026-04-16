@@ -21,10 +21,6 @@
   --australia:        #ff7e00;			/*---Same color as Explore link on table legend---*/
   --australiahover:   #b35c00;
 
-  --brown-dark:       #3d3228;
-  --brown-mid:        #5C4A2A;
-  --brown-light:      #7A6A52;
-  --brown-faint:      #C2B49A;
 
   --photo-bg:         #D9CBB0;
 
@@ -1155,7 +1151,7 @@ path.Turkey:hover, #AF:hover, #AM:hover, #BH:hover, #BD:hover, #BT:hover, #BN:ho
  			 AUSTRALIA PAGE 
 ============================================================================*/
 
-/* Australia Legend Key */
+
 
 .continent-content {
   width: 95%;
@@ -1172,6 +1168,8 @@ path.Turkey:hover, #AF:hover, #AM:hover, #BH:hover, #BD:hover, #BT:hover, #BN:ho
   flex: 1 1 760px;
   min-width: 620px;
 }
+
+/* Australia Legend Key */
 
 .legend-card {
   flex: 0 1 300px;
@@ -1326,3 +1324,6 @@ path.American.Samoa:hover, path.French.Polynesia:hover, path.New.Caledonia:hover
 .australia-map-inner path.New.Zealand:hover {
   fill: #b35c00 !important;
 }
+
+
+
