@@ -2,82 +2,14 @@
 <html lang="en">
 
 <head>
-  <style>
-    footer {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 10px 20px;
-    }
-
-    .footer-logo {
-      width: 150px;
-      opacity: 0.9;
-      height: auto;
-      margin-right: 15px;
-    }
-
-    .footer-content {
-      flex: 1;
-      text-align: center;
-    }
-
-    /* --- Pronunciation Button --- */
-    .pronounce-btn {
-      background: none;
-      border: 1.5px solid var(--green-pale, #9AB88A);
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      vertical-align: middle;
-      margin-left: 10px;
-      transition: background 0.2s, transform 0.2s, border-color 0.2s;
-      position: relative;
-      top: -2px;
-    }
-
-    .pronounce-btn:hover {
-      background: var(--green-faint, #D4E8C8);
-      transform: scale(1.1);
-      border-color: var(--green-mid, #3B5C2F);
-    }
-
-    .pronounce-btn:active {
-      transform: scale(0.95);
-    }
-
-    .pronounce-btn.speaking {
-      background: var(--green-faint, #D4E8C8);
-      border-color: var(--green-mid, #3B5C2F);
-      animation: pulse-speak 0.8s ease infinite;
-    }
-
-    .pronounce-btn svg {
-      width: 16px;
-      height: 16px;
-      fill: var(--green-mid, #3B5C2F);
-    }
-
-    @keyframes pulse-speak {
-
-      0%,
-      100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.12);
-      }
-    }
-  </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oceania & Australia Dishes</title>
+  <title>Australia & Oceania Dishes</title>
+
+  <!-- Main stylesheet (all styles now live here, not in a <style> block) -->
   <link rel="stylesheet" href="newstyle.css" />
+
+  <!-- Google Fonts: Playfair Display used for dish names and country titles -->
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet" />
@@ -85,42 +17,56 @@
 
 <body>
 
-  <!-- Back Button -->
+  <!-- ============================================================
+       BACK BUTTON
+       Fixed pill button top-left — returns user to the world map.
+       ============================================================ -->
   <a href="index.html" class="back-btn">← Back to World Map</a>
 
-  <!-- Vertical Nav -->
+  <!-- ============================================================
+       TOP NAVIGATION BAR
+       Fixed horizontal nav centered at the top of the screen.
+       Clicking a link smoothly scrolls to that country section.
+       The active link is highlighted by the JavaScript below.
+       ============================================================ -->
   <nav class="side-nav">
     <p class="side-nav-label">Navigate</p>
     <ul>
-      <li><a href="#AU" class="nav-link active">
-          <span class="nav-dot"></span>Australia</a>
-      </li>
-      <li><a href="#NZ" class="nav-link">
-          <span class="nav-dot"></span>New Zealand</a>
-      </li>
-      <li><a href="#FJ" class="nav-link">
-          <span class="nav-dot"></span>Fiji</a>
-      </li>
+      <li><a href="#AU" class="nav-link active"><span class="nav-dot"></span>Australia</a></li>
+      <li><a href="#NZ" class="nav-link"><span class="nav-dot"></span>New Zealand</a></li>
+      <li><a href="#FJ" class="nav-link"><span class="nav-dot"></span>Fiji</a></li>
     </ul>
   </nav>
 
-  <!-- Banner -->
+  <!-- ============================================================
+       HERO BANNER
+       Full-viewport header with the page title.
+       Dark background, centered text.
+       ============================================================ -->
   <header class="banner">
     <div class="banner-center">
       <p class="banner-eyebrow">Coastal Flavours &amp; Island Heritage</p>
-      <h1 class="banner-title">Oceania Dishes</h1>
-      <p class="banner-tagline">From the Outback to the Pacific Islands</p>
+      <h1 class="banner-title">Australia &amp; Oceania Dishes</h1>
+      <p class="banner-tagline">From the Outback to all of Oceania</p>
     </div>
   </header>
 
 
+  <!-- ============================================================
+       MAIN CONTENT
+       Houses all three country sections.
+       ============================================================ -->
   <main class="main-cont">
 
 
-    <!------------------------ AU: CARDS ----------------------------->
+    <!-- ============================================================
+         AUSTRALIA SECTION
+         Contains: Aussie Meat Pie, Lamingtons
+         ============================================================ -->
     <section id="AU" class="country-section">
 
-      <div class="flag-banner we-flag">
+      <!-- Australian flag banner with country title overlay -->
+      <div class="flag-banner au-flag">
         <div class="flag-overlay"></div>
         <div class="flag-content">
           <span class="flag-emoji">🇦🇺</span>
@@ -129,36 +75,43 @@
         </div>
       </div>
 
+      <!-- 2-column responsive grid for dish cards -->
       <div class="dishes-grid">
 
-        <!------- Aussie Meat Pie ------->
+        <!-- -------- Dish 1: Aussie Meat Pie -------- -->
         <article class="dish-card">
           <div class="dish-header">
             <h3 class="dish-name">Aussie Meat Pie
+              <!-- Pronunciation button — click to hear the dish name spoken aloud -->
               <button class="pronounce-btn" data-pronounce="Aussie Meat Pie" title="Hear pronunciation">
                 <svg viewBox="0 0 24 24">
-                  <path
-                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
                 </svg>
               </button>
             </h3>
             <p class="dish-origin">Australia</p>
           </div>
+
+          <!-- Dish photo -->
           <img class="dish-photo" src="dish-images/meat-pie.jpg" alt="Australian Meat Pie">
+
+          <!-- YouTube cooking tutorial (16:9 responsive embed) -->
+          <div class="dish-video">
+            <iframe src="https://www.youtube.com/embed/uKfhcQet-6M"
+              title="How to Make Australian Meat Pie" allowfullscreen loading="lazy"></iframe>
+          </div>
+
+          <!-- Ingredients & method -->
           <div class="dish-sections">
             <h4 class="section-label">Ingredients</h4>
             <ul class="ingredient-list">
-              <b>
-                <p style="color:var(--green-dark);">For Filling</p>
-              </b>
+              <b><p style="color:var(--green-dark);">For Filling</p></b>
               <li>Ground Beef</li>
               <li>Onion (finely chopped)</li>
               <li>Beef Stock</li>
               <li>Worcestershire Sauce</li>
               <li>Cornstarch (for thickening)</li>
-              <b>
-                <p style="color:var(--green-dark);">For Pastry</p>
-              </b>
+              <b><p style="color:var(--green-dark);">For Pastry</p></b>
               <li>Shortcrust Pastry (base)</li>
               <li>Puff Pastry (lid)</li>
               <li>Egg wash</li>
@@ -174,15 +127,61 @@
             </ol>
           </div>
         </article>
-      </div>
-    </section>
+
+        <!-- -------- Dish 2: Lamingtons -------- -->
+        <article class="dish-card">
+          <div class="dish-header">
+            <h3 class="dish-name">Lamingtons
+              <button class="pronounce-btn" data-pronounce="Lam-ing-tons" title="Hear pronunciation">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                </svg>
+              </button>
+            </h3>
+            <p class="dish-origin">Australia</p>
+          </div>
+          <img class="dish-photo" src="dish-images/lamingtons.jpg" alt="Australian Lamingtons">
+          <div class="dish-video">
+            <iframe src="https://www.youtube.com/embed/Br2QWy5n4yU"
+              title="How to Make Lamingtons" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="dish-sections">
+            <h4 class="section-label">Ingredients</h4>
+            <ul class="ingredient-list">
+              <b><p style="color:var(--green-dark);">For Sponge</p></b>
+              <li>Butter &amp; Caster Sugar</li>
+              <li>Eggs</li>
+              <li>Self-raising Flour</li>
+              <li>Milk &amp; Vanilla Extract</li>
+              <b><p style="color:var(--green-dark);">For Coating</p></b>
+              <li>Icing Sugar &amp; Cocoa Powder</li>
+              <li>Butter &amp; Boiling Water</li>
+              <li>Desiccated Coconut</li>
+            </ul>
+
+            <h4 class="section-label">Methods</h4>
+            <ol class="method-steps">
+              <li>Bake a simple vanilla sponge cake and let it cool completely. Refrigerate overnight for easier handling.</li>
+              <li>Cut the sponge into roughly 5cm squares.</li>
+              <li>Mix icing sugar, cocoa, butter, and boiling water into a smooth chocolate icing.</li>
+              <li>Dip each square into the chocolate icing using two forks, coating all sides.</li>
+              <li>Roll immediately in desiccated coconut and place on a wire rack to set.</li>
+            </ol>
+          </div>
+        </article>
+
+      </div><!-- end .dishes-grid (AU) -->
+    </section><!-- end #AU -->
 
 
-
-    <!------------------------ NZ: CARDS ----------------------------->
+    <!-- ============================================================
+         NEW ZEALAND SECTION
+         Contains: Hāngī, Pavlova
+         ============================================================ -->
     <section id="NZ" class="country-section">
 
-      <div class="flag-banner ne-flag">
+      <!-- New Zealand flag banner -->
+      <div class="flag-banner nz-flag">
         <div class="flag-overlay"></div>
         <div class="flag-content">
           <span class="flag-emoji">🇳🇿</span>
@@ -193,20 +192,23 @@
 
       <div class="dishes-grid">
 
-        <!------- Hāngī ------->
+        <!-- -------- Dish 3: Hāngī -------- -->
         <article class="dish-card">
           <div class="dish-header">
             <h3 class="dish-name">Hāngī
               <button class="pronounce-btn" data-pronounce="Hahng-ee" title="Hear pronunciation">
                 <svg viewBox="0 0 24 24">
-                  <path
-                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
                 </svg>
               </button>
             </h3>
             <p class="dish-origin">New Zealand</p>
           </div>
           <img class="dish-photo" src="dish-images/hangi.jpg" alt="Māori Hāngī">
+          <div class="dish-video">
+            <iframe src="https://www.youtube.com/embed/sh13g9eTWLM"
+              title="How to Cook a Traditional Hāngī" allowfullscreen loading="lazy"></iframe>
+          </div>
           <div class="dish-sections">
             <h4 class="section-label">Traditional Ingredients</h4>
             <ul class="ingredient-list">
@@ -227,15 +229,61 @@
             </ol>
           </div>
         </article>
-      </div>
-    </section>
+
+        <!-- -------- Dish 4: Pavlova -------- -->
+        <article class="dish-card">
+          <div class="dish-header">
+            <h3 class="dish-name">Pavlova
+              <button class="pronounce-btn" data-pronounce="Pav-loh-vah" title="Hear pronunciation">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                </svg>
+              </button>
+            </h3>
+            <p class="dish-origin">New Zealand</p>
+          </div>
+          <img class="dish-photo" src="dish-images/pavlova.jpg" alt="New Zealand Pavlova">
+          <div class="dish-video">
+            <iframe src="https://www.youtube.com/embed/mW-XF7tLDMQ"
+              title="How to Make Pavlova" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="dish-sections">
+            <h4 class="section-label">Ingredients</h4>
+            <ul class="ingredient-list">
+              <b><p style="color:var(--green-dark);">For Meringue</p></b>
+              <li>Egg Whites</li>
+              <li>Caster Sugar</li>
+              <li>White Vinegar</li>
+              <li>Cornflour</li>
+              <li>Vanilla Extract</li>
+              <b><p style="color:var(--green-dark);">For Topping</p></b>
+              <li>Whipped Cream</li>
+              <li>Kiwifruit, Strawberries &amp; Passionfruit</li>
+            </ul>
+
+            <h4 class="section-label">Methods</h4>
+            <ol class="method-steps">
+              <li>Beat egg whites until stiff peaks form, then gradually add sugar until glossy and thick.</li>
+              <li>Fold in vinegar, cornflour, and vanilla.</li>
+              <li>Shape the meringue into a circle on a lined baking tray with a slight hollow in the centre.</li>
+              <li>Bake at 250°F (120°C) for 1.5 hours, then turn off the oven and leave to cool inside.</li>
+              <li>Top with whipped cream and fresh seasonal fruits before serving.</li>
+            </ol>
+          </div>
+        </article>
+
+      </div><!-- end .dishes-grid (NZ) -->
+    </section><!-- end #NZ -->
 
 
-
-    <!------------------------ FJ: CARDS ----------------------------->
+    <!-- ============================================================
+         FIJI SECTION
+         Contains: Kokoda, Lovo
+         ============================================================ -->
     <section id="FJ" class="country-section">
 
-      <div class="flag-banner se-flag">
+      <!-- Fiji flag banner -->
+      <div class="flag-banner fj-flag">
         <div class="flag-overlay"></div>
         <div class="flag-content">
           <span class="flag-emoji">🇫🇯</span>
@@ -246,28 +294,31 @@
 
       <div class="dishes-grid">
 
-        <!------- Kokoda ------->
+        <!-- -------- Dish 5: Kokoda -------- -->
         <article class="dish-card">
           <div class="dish-header">
             <h3 class="dish-name">Kokoda
               <button class="pronounce-btn" data-pronounce="Ko-kohn-da" title="Hear pronunciation">
                 <svg viewBox="0 0 24 24">
-                  <path
-                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
                 </svg>
               </button>
             </h3>
             <p class="dish-origin">Fiji</p>
           </div>
           <img class="dish-photo" src="dish-images/kokoda.jpg" alt="Fijian Kokoda">
+          <div class="dish-video">
+            <iframe src="https://www.youtube.com/embed/GV8PViMKPCo"
+              title="How to Make Fijian Kokoda" allowfullscreen loading="lazy"></iframe>
+          </div>
           <div class="dish-sections">
             <h4 class="section-label">Ingredients</h4>
             <ul class="ingredient-list">
               <li>Fresh Walu or Snapper (cubed)</li>
               <li>Lime juice (enough to cover fish)</li>
               <li>Coconut Cream</li>
-              <li>Red Onion & Chili</li>
-              <li>Tomato & Spring Onions</li>
+              <li>Red Onion &amp; Chili</li>
+              <li>Tomato &amp; Spring Onions</li>
             </ul>
             <h4 class="section-label">Methods</h4>
             <ol class="method-steps">
@@ -279,67 +330,142 @@
             </ol>
           </div>
         </article>
-      </div>
-    </section>
 
-  </main>
+        <!-- -------- Dish 6: Lovo -------- -->
+        <article class="dish-card">
+          <div class="dish-header">
+            <h3 class="dish-name">Lovo
+              <button class="pronounce-btn" data-pronounce="Loh-voh" title="Hear pronunciation">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                </svg>
+              </button>
+            </h3>
+            <p class="dish-origin">Fiji</p>
+          </div>
+          <img class="dish-photo" src="dish-images/lovo.jpg" alt="Fijian Lovo">
+          <div class="dish-video">
+            <iframe src="https://www.youtube.com/embed/rEvQOVr4aMQ"
+              title="How to Cook a Fijian Lovo" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="dish-sections">
+            <h4 class="section-label">Ingredients</h4>
+            <ul class="ingredient-list">
+              <li>Whole Chicken pieces</li>
+              <li>Pork or Lamb</li>
+              <li>Taro &amp; Cassava (root vegetables)</li>
+              <li>Palusami (taro leaves with coconut cream)</li>
+              <li>Banana Leaves (for wrapping)</li>
+              <li>Salt &amp; Seasoning</li>
+            </ul>
 
+            <h4 class="section-label">Methods</h4>
+            <ol class="method-steps">
+              <li>Dig a large pit in the ground and fill it with dry wood and volcanic stones.</li>
+              <li>Light the fire and let the stones heat for 2–3 hours until glowing.</li>
+              <li>Wrap meats and vegetables in banana leaves and place them over the hot stones.</li>
+              <li>Cover everything with more banana leaves and earth to trap the heat and steam.</li>
+              <li>Cook for 3–4 hours. Unearth and serve communally on woven mats.</li>
+            </ol>
+          </div>
+        </article>
+
+      </div><!-- end .dishes-grid (FJ) -->
+    </section><!-- end #FJ -->
+
+  </main><!-- end .main-cont -->
+
+
+  <!-- ============================================================
+       FOOTER
+       Project credit and contact info.
+       Logo image on the left, text centered on the right.
+       ============================================================ -->
   <footer class="page-footer">
-    <img src="dish-images/Logo.png" class="footer-logo">
+    <!-- Project logo — image.png should be in the dish-images folder -->
+    <img src="dish-images/image.png" class="footer-logo" alt="Oceania Logo">
     <div class="footer-content">
-      <p>© Dining Around the World</p>
-      <p>Project Lead: Australia & Oceania Section</p>
       <p><strong>Creator: Sowande Crews</strong></p>
-      <p><a href="mailto:screws@example.edu">screws@example.edu</a></p>
+      <p>All images and clips aren't mine</p>
+      <p>© Dining Around the World</p>
+      <p><a href="mailto:screws1@pvamu.edu">screws1@pvamu.edu</a></p>
     </div>
   </footer>
 
+
+  <!-- ============================================================
+       JAVASCRIPT
+       Two features:
+       1. Scroll tracking — highlights the correct nav link
+          as you scroll through each country section.
+       2. Pronunciation buttons — uses the Web Speech API
+          to speak the dish name aloud when clicked.
+       ============================================================ -->
   <script>
-    // --- Side nav scroll tracking ---
+
+    // --- 1. SCROLL TRACKING (Nav active state) ---
+    // Watch all country sections and update the nav link highlight
+    // when a section enters the viewport.
+
     const sections = document.querySelectorAll('.country-section');
     const navLinks = document.querySelectorAll('.nav-link');
 
+    // IntersectionObserver fires when a section enters or leaves the screen
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          // Remove 'active' from all links first
           navLinks.forEach(l => l.classList.remove('active'));
+
+          // Add 'active' to the link that matches the visible section's id
           const id = entry.target.getAttribute('id');
           const active = document.querySelector(`.nav-link[href="#${id}"]`);
           if (active) active.classList.add('active');
         }
       });
-    }, { rootMargin: '-30% 0px -60% 0px' });
+    }, {
+      // Trigger when the section is between 30% and 70% down the viewport
+      rootMargin: '-30% 0px -60% 0px'
+    });
 
+    // Attach the observer to each section
     sections.forEach(s => observer.observe(s));
 
+    // Smooth scroll when a nav link is clicked
     navLinks.forEach(link => {
       link.addEventListener('click', e => {
-        e.preventDefault();
+        e.preventDefault(); // stop the default jump behavior
         const target = document.querySelector(link.getAttribute('href'));
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
 
-    // --- Pronunciation buttons ---
+
+    // --- 2. PRONUNCIATION BUTTONS ---
+    // When clicked, uses the browser's built-in speech synthesis
+    // to speak the dish name from the data-pronounce attribute.
+
     document.querySelectorAll('.pronounce-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const text = btn.getAttribute('data-pronounce');
-        // Cancel any ongoing speech first
+
+        // Cancel any speech already playing
         window.speechSynthesis.cancel();
 
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.rate = 0.85;   // slightly slower for clarity
+        utterance.rate  = 0.85;  // slightly slower for clarity
         utterance.pitch = 1;
-        utterance.lang = 'en';   // base language
+        utterance.lang  = 'en';  // English language
 
-        // Visual feedback while speaking
+        // Add the 'speaking' class while playing (triggers pulse animation)
         btn.classList.add('speaking');
-        utterance.onend = () => btn.classList.remove('speaking');
+        utterance.onend  = () => btn.classList.remove('speaking');
         utterance.onerror = () => btn.classList.remove('speaking');
 
         window.speechSynthesis.speak(utterance);
       });
     });
+
   </script>
 </body>
 
