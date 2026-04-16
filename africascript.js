@@ -19,23 +19,6 @@ function hideTooltip() {
 
 /* Clickable Countries */
 
-const dominicanrepublic = document.getElementById("CM");
-if (cameroon) { cameroon.addEventListener("click", () => { 
-  window.location.href = "african-dishes.html#cameroon"; 
- }); 
-
-  cameroon.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Cameroon");
-  });
-
-  cameroon.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Cameroon");
-  });
-
-  cameroon.addEventListener("mouseleave", hideTooltip);
-
-}
-
 // Cameroon Click
 
 const cameroon = document.getElementById("CM");
