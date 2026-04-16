@@ -1,0 +1,1329 @@
+/* ============================================
+   Dining Around the World
+   Personal Page · North America Edition
+   ============================================ */
+
+/* --- CSS Variables ----------------------------------------- */
+/*------Root- defines variables to make it easier to change aspects in the code-------*/
+:root {
+  --oceanblue1:       #9ac2ef;			/*---Light ocean blue that was part of vote------*/
+  --oceanblue2:       #4a90e2;			/*---Dark ocean blue that won vote------*/
+  --namerica:         #001eff;			/*---Same color as Explore link on table legend---*/
+  --namericahover:    #23199b;
+  --samerica:         #9f00c5;			/*---Same color as Explore link on table legend---*/
+  --samericahover:    #5e0075;
+  --europe:           #00ff00;			/*---Same color as Explore link on table legend---*/
+  --europehover:      #004700;
+  --africa:           #fcc200;			/*---Same color as Explore link on table legend---*/
+  --africahover:      #ca9b11;
+  --asia:             #ff0000;			/*---Same color as Explore link on table legend---*/
+  --asiahover:        #b41a09;
+  --australia:        #ff7e00;			/*---Same color as Explore link on table legend---*/
+  --australiahover:   #b35c00;
+
+
+  --photo-bg:         #D9CBB0;
+
+  --nav-width:        80px;
+
+  --font-display:     'EB Garamond', Georgia, serif;
+  --font-body:        'Cormorant Garamond', Georgia, serif;
+  --font-ui:          'Jost', sans-serif;
+  --blue:           #4a90e2;
+  --blue-light:     rgba(74, 144, 226, 0.15);
+  --blue-mid:       rgba(74, 144, 226, 0.35);
+  --red-mail:       #c0392b;
+  --parchment:      #f5f0e8;
+  --parchment-light:#faf7f2;
+  --parchment-dark: #e8e0cc;
+  --parchment-border: rgba(181, 168, 130, 0.45);
+  --ink:            #2c2416;
+  --ink-light:      #5a4f3a;
+  --ink-faint:      rgba(44, 36, 22, 0.35);
+  --stamp-bg:       #fdfaf4;
+  --font-display:   'Playfair Display', Georgia, serif;
+  --font-typewriter:'Special Elite', 'Courier New', monospace;
+  --font-body:      'DM Sans', sans-serif;
+}
+
+
+
+
+
+/* ==========================================================================
+ 			    GENERAL / WHOLE SITE 
+============================================================================*/
+
+body { 
+  margin: 0;
+  font-family: Georgia, serif;
+  background-color: #4a90e2;
+  color: #3b2a1f;
+  text-align: center;
+  position: relative;
+
+}
+
+/* back button specs */
+
+.back-button {
+  position: absolute;
+  top: 15px;
+  left: 36px;
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #5a4632;
+  color: #f7f1e8;
+  text-decoration: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.back-button:hover {
+  background-color: #3b2a1f;
+  transform: translateY(-2px);
+}
+
+#country-tooltip {
+  position: fixed;
+  display: none;
+  background-color: rgba(59, 42, 31, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  pointer-events: none;
+  z-index: 9999;
+  white-space: nowrap;
+}
+
+#continent-tooltip {
+  position: fixed;
+  display: none;
+  background-color: rgba(59, 42, 31, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  pointer-events: none;
+  z-index: 9999;
+  white-space: nowrap;
+}
+
+
+
+/* ==========================================================================
+ 			 INDEX.HTML / HOMEPAGE 
+============================================================================*/
+
+.map-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* how the motion feels */
+
+.map-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  transition: transform 2s cubic-bezier(0.7, 0, 0.2, 1), opacity 0.8s ease;
+  transform-origin: center center;
+}
+
+.hero {
+  padding: 30px 20px 10px;
+  transition: opacity 0.5s ease;
+}
+
+.hero {
+  padding: 30px 20px 10px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.map-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+svg {
+  width: 100%;
+  height: auto;
+  background-color:#4a90e2; 
+}
+
+/* Default map look */
+
+path {
+  fill: #d8c6a3;
+  stroke: #5a4632;
+  stroke-width: 0.7;
+  transition: all 0.3s ease;
+}
+
+/* FOOTER SPECS */
+
+.footer-nav {
+  width: 85%;
+  max-width: 950px;
+  margin: 45px auto 30px;
+  padding: 22px 20px;
+  background: rgba(255, 248, 238, 0.7);
+  border: 1px solid rgba(90, 70, 50, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(4px);
+  text-align: center;
+}
+
+.footer-nav p {
+  margin: 0 0 14px 0;
+  font-size: 1.15rem;
+  color: #4b3929;
+  font-family: Georgia, serif;
+  letter-spacing: 0.5px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer-links a {
+  display: inline-block;
+  padding: 9px 16px;
+  background-color: #e6d3b3;
+  color: #3b2a1f;
+  text-decoration: none;
+  border: 1px solid rgba(90, 70, 50, 0.16);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-family: Georgia, serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  background-color: #d8c6a3;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+ 			 NORTH AMERICA PAGE / HTML
+============================================================================*/
+
+
+/* HIGHLIGHT NORTH AMERICA */
+
+path.Canada, path.United.States, path.Antigua.and.Barbuda, path.Bahamas, 
+path.Saint.Kitts.and.Nevis, path.Trinidad.and.Tobago, path.Guadaloupe, 
+path.Puerto.Rico, path.Turks.and.Caicos.Islands, path.United.States.Virgin.Islands, 
+#MX, #BB, #BZ, #CR, #CU, #DM, #DO, #SV, #GD, #GT, #HT, #HN, #JM, #MX, #NI, #PA, #LC, 
+#VC, #AI, #AW, #BM, #VG, #CW, #GL, #MQ, #MS, #BQSA, #MF, #BQSE, #SX {
+  fill: #001eff !important;
+  cursor: pointer;
+}
+ 
+/* HOVER EFFECT FOR NORTH AMERICA */
+
+path.Canada:hover, path.United.States:hover, path.Antigua.and.Barbuda:hover, path.Bahamas:hover, 
+path.Saint.Kitts.and.Nevis:hover, path.Trinidad.and.Tobago:hover, path.Guadaloupe:hover, 
+path.Puerto.Rico:hover, path.Turks.and.Caicos.Islands:hover, path.United.States.Virgin.Islands:hover, 
+#MX:hover, #BB:hover, #BZ:hover, #CR:hover, #CU:hover, #DM:hover, #DO:hover, #SV:hover, #GD:hover, 
+#GT:hover, #HT:hover, #HN:hover, #JM:hover, #MX:hover, #NI:hover, #PA:hover, #LC:hover, 
+#VC:hover, #AI:hover, #AW:hover, #BM:hover, #VG:hover, #CW:hover, #GL:hover, #MQ:hover, 
+#MS:hover, #BQSA:hover, #MF:hover, #BQSE:hover, #SX:hover {
+  fill: #23199b !important;
+}
+
+.northamerica-hero {
+  margin-top: 20px;
+}
+
+.northamerica-hero h1 {
+  margin-top: 1rem;
+  margin-bottom: 8px;
+}
+
+.northamerica-hero p {
+  margin-top: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.northamerica-map-frame {
+  width: 78%;
+  max-width: 900px;
+  height: 520px;
+  margin: 0 auto 40px auto;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.northamerica-map-inner {
+  width: 100%;
+  height: 100%;
+  position: relative; 
+}
+
+/* after zoom North America landing, where it lands */
+/* width: <smaller # = more zoomed OUT>  <larger # = more zoomed IN>*/
+/* top: <more negative/smaller positive #  = moves map UP> <larger positive # = moves map DOWN> */
+/* left: <more negative/smaller positive # = moves map LEFT> <larger positive # = moves map RIGHT>*/
+
+
+.northamerica-map-inner svg {
+  width: 2000px;
+  height: auto;
+  position: absolute;
+  top: 55px;
+  left: -80px;
+}
+
+/* zoom toward North America, where the motion goes */
+/* translate(x, y) - inc x = right,dec x = left, inc y= up,dec y= down*/
+
+.zoom-na {
+  transform: scale(1.85) translate(350px, 150px);
+}
+
+/* fade heading a little during zoom */
+
+.fade-out {
+  opacity: 0.12;
+}
+
+/* North America Legend Key */
+
+.continent-content {
+  width: 95%;
+  max-width: 1400px;
+  margin: 30px auto 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.map-panel {
+  flex: 1 1 760px;
+  min-width: 620px;
+}
+
+.legend-card {
+  flex: 0 1 300px;
+  background: rgba(255, 248, 238, 0.82);
+  border: 1px solid rgba(90, 70, 50, 0.20);
+  border-radius: 20px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  padding: 18px;
+  color: #3b2a1f;
+  text-align: left;
+}
+
+.legend-card h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.4px;
+}
+
+.legend-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.legend-table th,
+.legend-table td {
+  border: 1px solid rgba(90, 70, 50, 0.16);
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.legend-table th {
+  background-color: rgba(90, 70, 50, 0.08);
+  font-family: Georgia, serif;
+}
+
+.legend-note {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* North America zoom transitions */
+
+/* Make other countries fade out on continent page */
+
+/* Highlight North America only */
+
+
+.northamerica-map-inner path {
+  fill: #e9dfcf;
+  opacity: 0.25;
+  stroke: #5a4632;
+  stroke-width: 0.7;
+}
+
+.northamerica-map-inner path.Canada, .northamerica-map-inner path.United.States, .northamerica-map-inner path.Antigua.and.Barbuda, .northamerica-map-inner path.Bahamas, 
+.northamerica-map-inner path.Saint.Kitts.and.Nevis, .northamerica-map-inner path.Trinidad.and.Tobago, .northamerica-map-inner path.Guadaloupe, .northamerica-map-inner path.Puerto.Rico,
+.northamerica-map-inner path.Turks.and.Caicos.Islands, .northamerica-map-inner path.United.States.Virgin.Islands, .northamerica-map-inner #MX, .northamerica-map-inner #BB, .northamerica-map-inner #BZ, .northamerica-map-inner #CR, .northamerica-map-inner #CU, .northamerica-map-inner #DM, .northamerica-map-inner #DO, .northamerica-map-inner #SV, 
+.northamerica-map-inner #GD, .northamerica-map-inner #GT, .northamerica-map-inner #HT, .northamerica-map-inner #HN, .northamerica-map-inner #JM, .northamerica-map-inner #MX, 
+.northamerica-map-inner #NI, .northamerica-map-inner #PA, .northamerica-map-inner #LC, .northamerica-map-inner #VC, .northamerica-map-inner #AI, .northamerica-map-inner #AW, 
+.northamerica-map-inner #BM, .northamerica-map-inner #VG, .northamerica-map-inner #CW, .northamerica-map-inner #GL, .northamerica-map-inner #MQ, .northamerica-map-inner #MS, 
+.northamerica-map-inner #BQSA, .northamerica-map-inner #MF, .northamerica-map-inner #BQSE, .northamerica-map-inner #SX {
+  fill: #001eff !important;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+.northamerica-map-inner path.Bahamas:hover,
+.northamerica-map-inner #BB:hover,
+.northamerica-map-inner path.Canada:hover,
+.northamerica-map-inner #DO:hover,
+.northamerica-map-inner #JM:hover,
+.northamerica-map-inner #MX:hover,
+.northamerica-map-inner path.Puerto.Rico:hover,
+.northamerica-map-inner path.Trinidad.and.Tobago:hover {
+  fill: #23199b !important;
+}
+
+/* ==========================================================================
+ 			 SOUTH AMERICA PAGE 
+============================================================================*/
+
+/* South America Legend Key */
+
+.continent-content {
+  width: 95%;
+  max-width: 1400px;
+  margin: 30px auto 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.map-panel {
+  flex: 1 1 760px;
+  min-width: 620px;
+}
+
+.legend-card {
+  flex: 0 1 300px;
+  background: rgba(255, 248, 238, 0.82);
+  border: 1px solid rgba(90, 70, 50, 0.20);
+  border-radius: 20px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  padding: 18px;
+  color: #3b2a1f;
+  text-align: left;
+}
+
+.legend-card h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.4px;
+}
+
+.legend-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.legend-table th,
+.legend-table td {
+  border: 1px solid rgba(90, 70, 50, 0.16);
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.legend-table th {
+  background-color: rgba(90, 70, 50, 0.08);
+  font-family: Georgia, serif;
+}
+
+.legend-note {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* HIGHLIGHT SOUTH AMERICA */
+
+path.Argentina, path.Chile, path.Falkland.Islands, 
+#BR, #PE, #CO, #BO, #EC, #VE, #PY, #UY, #GY, #SR, #GF {
+  fill: #9f00c5 !important;
+  cursor: pointer;
+}
+
+ 
+/* HOVER EFFECT FOR SOUTH AMERICA */
+
+path.Argentina:hover, path.Chile:hover, path.Falkland.Islands:hover, #BR:hover, #PE:hover, #CO:hover, 
+#BO:hover, #EC:hover, #VE:hover, #PY:hover, #UY:hover, #GY:hover, #SR:hover, #GF:hover {
+  fill: #5e0075 !important;
+}
+
+.southamerica-hero {
+  margin-top: 20px;
+}
+
+.southamerica-hero h1 {
+  margin-top: 3rem;
+  margin-bottom: 8px;
+}
+
+.southamerica-hero p {
+  margin-top: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.southamerica-map-frame {
+  width: 78%;
+  max-width: 900px;
+  height: 520px;
+  margin: 0 auto 40px auto;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.southamerica-map-inner {
+  width: 100%;
+  height: 100%;
+  position: relative; 
+}
+
+/* after zoom South America landing, where it lands */
+/* width: <smaller # = more zoomed OUT>  <larger # = more zoomed IN>*/
+/* top: <more negative/smaller positive #  = moves map UP> <larger positive # = moves map DOWN> */
+/* left: <more negative/smaller positive # = moves map LEFT> <larger positive # = moves map RIGHT>*/
+
+
+.southamerica-map-inner svg {
+  width: 2150px;
+  height: auto;
+  position: absolute;
+  top: -450px;
+  left: -200px;
+}
+
+/* zoom toward South America, where the motion goes */
+/* translate(x, y) - inc x = right,dec x = left, inc y= up,dec y= down*/
+
+.zoom-sa {
+  transform: scale(1.85) translate(150px, -150px);
+}
+
+/* fade heading a little during zoom */
+
+.fade-out {
+  opacity: 0.12;
+}
+
+
+/* South America zoom transitions */
+
+/* Make other countries fade out on continent page */
+
+/* Highlight South America only */
+
+
+.southamerica-map-inner path {
+  fill: #e9dfcf;
+  opacity: 0.25;
+  stroke: #5a4632;
+  stroke-width: 0.7;
+}
+
+.southamerica-map-inner path.Argentina, .southamerica-map-inner path.Chile, .southamerica-map-inner path.Falkland.Islands, .southamerica-map-inner #BR, 
+.southamerica-map-inner #PE, .southamerica-map-inner #CO, .southamerica-map-inner #BO, .southamerica-map-inner #EC, .southamerica-map-inner #VE, 
+.southamerica-map-inner #PY, .southamerica-map-inner #UY, .southamerica-map-inner #GY, .southamerica-map-inner #SR, .southamerica-map-inner #GF {
+  fill: #9f00c5 !important;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+.southamerica-map-inner path.Argentina:hover,
+.southamerica-map-inner #BR:hover,
+.southamerica-map-inner path.Chile:hover,
+.southamerica-map-inner #CO:hover,
+.southamerica-map-inner #PE:hover,
+.southamerica-map-inner #VE:hover {
+  fill: #5e0075 !important;
+}
+
+/* ==========================================================================
+ 			 EUROPE PAGE 
+============================================================================*/
+
+/* Europe Legend Key */
+
+.continent-content {
+  width: 95%;
+  max-width: 1400px;
+  margin: 30px auto 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.map-panel {
+  flex: 1 1 760px;
+  min-width: 620px;
+}
+
+.legend-card {
+  flex: 0 1 300px;
+  background: rgba(255, 248, 238, 0.82);
+  border: 1px solid rgba(90, 70, 50, 0.20);
+  border-radius: 20px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  padding: 18px;
+  color: #3b2a1f;
+  text-align: left;
+}
+
+.legend-card h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.4px;
+}
+
+.legend-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.legend-table th,
+.legend-table td {
+  border: 1px solid rgba(90, 70, 50, 0.16);
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.legend-table th {
+  background-color: rgba(90, 70, 50, 0.08);
+  font-family: Georgia, serif;
+}
+
+.legend-note {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* HIGHLIGHT EUROPE */
+
+path.Denmark, path.France, path.Greece, path.Italy, path.Malta, path.Norway, path.United.Kingdom, 
+#AL, #AT, #BY, #BE, #BA, #BG, #HR, #CZ, #EE, #FI, #DE, #HU, #IS, #IE, #XK, #LV, #LT, #LU, #MD, #ME, 
+#NL, #MK, #PL, #PT, #RO, #RS, #SK, #SI, #ES, #SE, #CH, #UA {
+  fill: green !important;
+  cursor: pointer;
+}
+
+ 
+/* HOVER EFFECT FOR EUROPE */
+
+path.Denmark:hover, path.France:hover, path.Greece:hover, path.Italy:hover, path.Malta:hover, path.Norway:hover, 
+path.United.Kingdom:hover, #AL:hover, #AT:hover, #BY:hover, #BE:hover, #BA:hover, #BG:hover, #HR:hover, #CZ:hover, 
+#EE:hover, #FI:hover, #DE:hover, #HU:hover, #IS:hover, #IE:hover, #XK:hover, #LV:hover, #LT:hover, #LU:hover, 
+#MD:hover, #ME:hover, #NL:hover, #MK:hover, #PL:hover, #PT:hover, #RO:hover, #RS:hover, #SK:hover, #SI:hover, 
+#ES:hover, #SE:hover, #CH:hover, #UA:hover {
+  fill: #004700 !important;
+}
+
+.europe-hero {
+  margin-top: 20px;
+}
+
+.europe-hero h1 {
+  margin-top: 3rem;
+  margin-bottom: 8px;
+}
+
+.europe-hero p {
+  margin-top: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.europe-map-frame {
+  width: 78%;
+  max-width: 900px;
+  height: 520px;
+  margin: 0 auto 40px auto;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.europe-map-inner {
+  width: 100%;
+  height: 100%;
+  position: relative; 
+}
+
+/* after zoom Europe landing, where it lands */
+/* width: <smaller # = more zoomed OUT>  <larger # = more zoomed IN>*/
+/* top: <more negative/smaller positive #  = moves map UP> <larger positive # = moves map DOWN> */
+/* left: <more negative/smaller positive # = moves map LEFT> <larger positive # = moves map RIGHT>*/
+
+.europe-map-inner svg {
+  width: 3600px;
+  height: auto;
+  position: absolute;
+  top: -300x;
+  left: -1400px;
+}
+
+/* zoom toward Europe, where the motion goes */
+/* translate(x, y) - inc x = right,dec x = left, inc y= up,dec y= down*/
+
+.zoom-eu {
+  transform: scale(2.5) translate(-20px, 200px);
+}
+
+/* fade heading a little during zoom */
+
+.fade-out {
+  opacity: 0.12;
+}
+
+
+/* Europe zoom transitions */
+
+/* Make other countries fade out on continent page */
+
+/* Highlight Europe only */
+
+
+.europe-map-inner path {
+  fill: #e9dfcf;
+  opacity: 0.25;
+  stroke: #5a4632;
+  stroke-width: 0.7;
+}
+
+.europe-map-inner path.Denmark, .europe-map-inner path.France, .europe-map-inner path.Greece, .europe-map-inner path.Italy, 
+.europe-map-inner path.Malta, .europe-map-inner path.Norway, .europe-map-inner path.United.Kingdom, .europe-map-inner #AL, .europe-map-inner #AT, 
+.europe-map-inner #BY, .europe-map-inner #BE, .europe-map-inner #BA, .europe-map-inner #BG, .europe-map-inner #HR, 
+.europe-map-inner #HR, .europe-map-inner #HR, .europe-map-inner #CZ, .europe-map-inner #EE, .europe-map-inner #FI, .europe-map-inner #DE, 
+.europe-map-inner #HU, .europe-map-inner #IS, .europe-map-inner #IE, .europe-map-inner #XK, .europe-map-inner #LV, .europe-map-inner #LT, 
+.europe-map-inner #LU, .europe-map-inner #MD, .europe-map-inner #ME, .europe-map-inner #NL, .europe-map-inner #MK, .europe-map-inner #PL, 
+.europe-map-inner #PT, .europe-map-inner #RO, .europe-map-inner #RS, .europe-map-inner #SK, .europe-map-inner #SI, .europe-map-inner #ES, 
+.europe-map-inner #SE, .europe-map-inner #CH, .europe-map-inner #UA {
+  fill: green !important;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+.europe-map-inner #AL:hover,
+.europe-map-inner #BE:hover,
+.europe-map-inner path.France:hover,
+.europe-map-inner path.Greece:hover,
+.europe-map-inner path.Italy:hover,
+.europe-map-inner path.Norway:hover,
+.europe-map-inner #PL:hover,
+.europe-map-inner #SE:hover {
+  fill: #004700 !important;
+}
+
+/* ==========================================================================
+ 			 AFRICA PAGE 
+============================================================================*/
+
+/* Africa Legend Key */
+
+.continent-content {
+  width: 95%;
+  max-width: 1400px;
+  margin: 30px auto 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.map-panel {
+  flex: 1 1 760px;
+  min-width: 620px;
+}
+
+.legend-card {
+  flex: 0 1 300px;
+  background: rgba(255, 248, 238, 0.82);
+  border: 1px solid rgba(90, 70, 50, 0.20);
+  border-radius: 20px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  padding: 18px;
+  color: #3b2a1f;
+  text-align: left;
+}
+
+.legend-card h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.4px;
+}
+
+.legend-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.legend-table th,
+.legend-table td {
+  border: 1px solid rgba(90, 70, 50, 0.16);
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.legend-table th {
+  background-color: rgba(90, 70, 50, 0.08);
+  font-family: Georgia, serif;
+}
+
+.legend-note {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* HIGHLIGHT AFRICA */
+
+path.Angola, path.Cape.Verde, path.Comoros, path.Mauritius, path.São.Tomé.and.Principe, 
+#DZ, #BJ, #BW, #BF, #BI, #CM, #CF, #TD, #CD, #CG, #DJ, #EG, #GQ, #ER, #SZ, #ET, #GA, #GM, 
+#GH, #GN, #GW, #KE, #LS, #LR, #LY, #MG, #MW, #ML, #CI, #MR, #MA, #MZ, #NA, #NE, #NG, #RW, 
+#SN, #SL, #SO, #ZA, #SS, #SD, #TZ, #TG, #TN, #UG, #ZM, #ZW {
+  fill: #fcc200 !important;
+  cursor: pointer;
+}
+
+
+/* HOVER EFFECT FOR AFRICA */
+
+path.Angola:hover, path.Cape.Verde:hover, path.Comoros:hover, path.Mauritius:hover, path.São.Tomé.and.Principe:hover, 
+#DZ:hover, #BJ:hover, #BW:hover, #BF:hover, #BI:hover, #CM:hover, #CF:hover, #TD:hover, #CD:hover, #CG:hover, #DJ:hover, 
+#EG:hover, #GQ:hover, #ER:hover, #SZ:hover, #ET:hover, #GA:hover, #GM:hover, #GH:hover, #GN:hover, #GW:hover, 
+#KE:hover, #LS:hover, #LR:hover, #LY:hover, #MG:hover, #MW:hover, #ML:hover, #CI:hover, #MR:hover, #MA:hover, 
+#MZ:hover, #NA:hover, #NE:hover, #NG:hover, #RW:hover, #SN:hover, #SL:hover, #SO:hover, #ZA:hover, #SS:hover, 
+#SD:hover, #TZ:hover, #TG:hover, #TN:hover, #UG:hover, #ZM:hover, #ZW:hover {
+  fill: #ca9b11 !important;
+}
+
+.africa-hero {
+  margin-top: 20px;
+}
+
+.africa-hero h1 {
+  margin-top: 3rem;
+  margin-bottom: 8px;
+}
+
+.africa-hero p {
+  margin-top: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.africa-map-frame {
+  width: 78%;
+  max-width: 900px;
+  height: 520px;
+  margin: 0 auto 40px auto;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.africa-map-inner {
+  width: 100%;
+  height: 100%;
+  position: relative; 
+}
+
+/* after zoom Africa landing, where it lands */
+/* width: <smaller # = more zoomed OUT>  <larger # = more zoomed IN>*/
+/* top: <more negative/smaller positive #  = moves map UP> <larger positive # = moves map DOWN> */
+/* left: <more negative/smaller positive # = moves map LEFT> <larger positive # = moves map RIGHT>*/
+
+.africa-map-inner svg {
+  width: 2000px;
+  height: auto;
+  position: absolute;
+  top: -250px;
+  left: -600px;
+}
+
+/* zoom toward Africa, where the motion goes */
+/* translate(x, y) - inc x = right,dec x = left, inc y= up,dec y= down*/
+
+.zoom-af {
+  transform: scale(1.50) translate(-20px, -80px);
+}
+
+/* fade heading a little during zoom */
+
+.fade-out {
+  opacity: 0.12;
+}
+
+
+/* Africa zoom transitions */
+
+/* Make other countries fade out on continent page */
+
+/* Highlight Africa only */
+
+.africa-map-inner path {
+  fill: #e9dfcf;
+  opacity: 0.25;
+  stroke: #5a4632;
+  stroke-width: 0.7;
+}
+
+.africa-map-inner path.Angola, .africa-map-inner path.Cape.Verde, .africa-map-inner path.Comoros, 
+.africa-map-inner path.Mauritius, .africa-map-inner path.São.Tomé.and.Principe, .africa-map-inner #DZ, 
+.africa-map-inner #BJ, .africa-map-inner #BW, .africa-map-inner #BF, .africa-map-inner #BI, 
+.africa-map-inner #CM, .africa-map-inner #CF, .africa-map-inner #TD, .africa-map-inner #CD, 
+.africa-map-inner #CG, .africa-map-inner #DJ, .africa-map-inner #EG, .africa-map-inner #GQ, 
+.africa-map-inner #ER, .africa-map-inner #SZ, .africa-map-inner #ET, .africa-map-inner #GA, 
+.africa-map-inner #GM, .africa-map-inner #GH, .africa-map-inner #GN, .africa-map-inner #GW, 
+.africa-map-inner #KE, .africa-map-inner #LS, .africa-map-inner #LR, .africa-map-inner #LY, 
+.africa-map-inner #MG, .africa-map-inner #MW, .africa-map-inner #ML, .africa-map-inner #CI, 
+.africa-map-inner #MR, .africa-map-inner #MA, .africa-map-inner #MZ, .africa-map-inner #NA, 
+.africa-map-inner #NE, .africa-map-inner #NG, .africa-map-inner #RW, .africa-map-inner #SN, 
+.africa-map-inner #SL, .africa-map-inner #SO, .africa-map-inner #ZA, .africa-map-inner #SS, 
+.africa-map-inner #SD, .africa-map-inner #TZ, .africa-map-inner #TG, .africa-map-inner #TN, 
+.africa-map-inner #UG, .africa-map-inner #ZM, .africa-map-inner #ZW {
+  fill: #fcc200 !important;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+.africa-map-inner #CM:hover,
+.africa-map-inner #GQ:hover,
+.africa-map-inner #ET:hover,
+.africa-map-inner #GH:hover,
+.africa-map-inner #NG:hover,
+.africa-map-inner #ZA:hover {
+  fill: #ca9b11 !important;
+}
+
+
+/* ==========================================================================
+ 			 ASIA PAGE 
+============================================================================*/
+
+/* Asia Legend Key */
+
+.continent-content {
+  width: 95%;
+  max-width: 1400px;
+  margin: 30px auto 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.map-panel {
+  flex: 1 1 760px;
+  min-width: 620px;
+}
+
+.legend-card {
+  flex: 0 1 300px;
+  background: rgba(255, 248, 238, 0.82);
+  border: 1px solid rgba(90, 70, 50, 0.20);
+  border-radius: 20px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  padding: 18px;
+  color: #3b2a1f;
+  text-align: left;
+}
+
+.legend-card h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.4px;
+}
+
+.legend-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.legend-table th,
+.legend-table td {
+  border: 1px solid rgba(90, 70, 50, 0.16);
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.legend-table th {
+  background-color: rgba(90, 70, 50, 0.08);
+  font-family: Georgia, serif;
+}
+
+.legend-note {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* HIGHLIGHT ASIA */
+
+path.Azerbaijan, path.China, path.Cyprus, path.Indonesia, path.Japan, path.Malaysia, path.Oman, 
+path.Philippines, path.Russian.Federation, path.Turkey, #AF, #AM, #BH, #BD, #BT, #BN, #KH, #GE, 
+#IN, #IR, #IQ, #IL, #JO, #KZ, #KW, #KG, #LA, #LB, #MV, #MN, #MM, #NP, #KP, #PK, #PS, #QA, #SA, 
+#KR, #LK, #SY, #TW, #TJ, #TH, #TL, #TM, #AE, #UZ, #VN, #YE {
+  fill: red !important;
+  cursor: pointer;
+}
+
+ 
+/* HOVER EFFECT FOR ASIA */
+
+path.Azerbaijan:hover, path.China:hover, path.Cyprus:hover, path.Indonesia:hover, path.Japan:hover, 
+path.Malaysia:hover, path.Oman:hover, path.Philippines:hover, path.Russian.Federation:hover, 
+path.Turkey:hover, #AF:hover, #AM:hover, #BH:hover, #BD:hover, #BT:hover, #BN:hover, #KH:hover, 
+#GE:hover, #IN:hover, #IR:hover, #IQ:hover, #IL:hover, #JO:hover, #KZ:hover, #KW:hover, #KG:hover, 
+#LA:hover, #LB:hover, #MV:hover, #MN:hover, #MM:hover, #NP:hover, #KP:hover, #PK:hover, #PS:hover, 
+#QA:hover, #SA:hover, #KR:hover, #LK:hover, #SY:hover, #TW:hover, #TJ:hover, #TH:hover, #TL:hover, 
+#TM:hover, #AE:hover, #UZ:hover, #VN:hover, #YE:hover {
+  fill: #b41a09 !important;
+}
+
+.asia-hero {
+  margin-top: 20px;
+}
+
+.asia-hero h1 {
+  margin-top: 3rem;
+  margin-bottom: 8px;
+}
+
+.asia-hero p {
+  margin-top: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.asia-map-frame {
+  width: 78%;
+  max-width: 900px;
+  height: 520px;
+  margin: 0 auto 40px auto;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.asia-map-inner {
+  width: 100%;
+  height: 100%;
+  position: relative; 
+}
+
+/* after zoom Asia landing, where it lands */
+/* width: <smaller # = more zoomed OUT>  <larger # = more zoomed IN>*/
+/* top: <more negative/smaller positive #  = moves map UP> <larger positive # = moves map DOWN> */
+/* left: <more negative/smaller positive # = moves map LEFT> <larger positive # = moves map RIGHT>*/
+
+
+.asia-map-inner svg {
+  width: 1550px;
+  height: auto;
+  position: absolute;
+  top: 75px;
+  left: -700px;
+}
+
+/* zoom toward Asia, where the motion goes */
+/* translate(x, y) - inc x = right,dec x = left, inc y= up,dec y= down*/
+
+.zoom-as {
+  transform: scale(1.3) translate(-400px, 150px);
+}
+
+/* fade heading a little during zoom */
+
+.fade-out {
+  opacity: 0.12;
+}
+
+
+/* Asia zoom transitions */
+
+/* Make other countries fade out on continent page */
+
+/* Highlight Asia only */
+
+.asia-map-inner path {
+  fill: #e9dfcf;
+  opacity: 0.25;
+  stroke: #5a4632;
+  stroke-width: 0.7;
+}
+
+.asia-map-inner path.Azerbaijan, .asia-map-inner path.China, .asia-map-inner path.Cyprus, .asia-map-inner path.Indonesia, 
+.asia-map-inner path.Japan, .asia-map-inner path.Malaysia, .asia-map-inner path.Oman, .asia-map-inner path.Philippines, 
+.asia-map-inner path.Russian.Federation, .asia-map-inner path.Turkey, .asia-map-inner #AF, .asia-map-inner #AM, 
+.asia-map-inner #BH, .asia-map-inner #BD, .asia-map-inner #BT, .asia-map-inner #BN, .asia-map-inner #KH, .asia-map-inner #GE,
+.asia-map-inner #IN, .asia-map-inner #IR, .asia-map-inner #IQ, .asia-map-inner #IL, .asia-map-inner #JO, .asia-map-inner #KZ, 
+.asia-map-inner #KW, .asia-map-inner #KG, .asia-map-inner #LA, .asia-map-inner #LB, .asia-map-inner #MV, .asia-map-inner #MN, 
+.asia-map-inner #MM, .asia-map-inner #NP, .asia-map-inner #KP, .asia-map-inner #PK, .asia-map-inner #PS, .asia-map-inner #QA, 
+.asia-map-inner #SA, .asia-map-inner #KR, .asia-map-inner #LK, .asia-map-inner #SY, .asia-map-inner #TW, .asia-map-inner #TJ, 
+.asia-map-inner #TH, .asia-map-inner #TL, .asia-map-inner #TM, .asia-map-inner #AE, .asia-map-inner #UZ, .asia-map-inner #VN, 
+.asia-map-inner #YE {
+  fill: red !important;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+     
+.asia-map-inner path.China:hover,
+.asia-map-inner #IN:hover,
+.asia-map-inner path.Japan:hover,
+.asia-map-inner #KR:hover,
+.asia-map-inner #TW:hover,
+.asia-map-inner path.Turkey:hover {
+  fill: #b41a09 !important;
+}
+
+
+/* ==========================================================================
+ 			 AUSTRALIA PAGE 
+============================================================================*/
+
+
+
+.continent-content {
+  width: 95%;
+  max-width: 1400px;
+  margin: 30px auto 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.map-panel {
+  flex: 1 1 760px;
+  min-width: 620px;
+}
+
+/* Australia Legend Key */
+
+.legend-card {
+  flex: 0 1 300px;
+  background: rgba(255, 248, 238, 0.82);
+  border: 1px solid rgba(90, 70, 50, 0.20);
+  border-radius: 20px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+  padding: 18px;
+  color: #3b2a1f;
+  text-align: left;
+}
+
+.legend-card h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.4px;
+}
+
+.legend-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.legend-table th,
+.legend-table td {
+  border: 1px solid rgba(90, 70, 50, 0.16);
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.legend-table th {
+  background-color: rgba(90, 70, 50, 0.08);
+  font-family: Georgia, serif;
+}
+
+.legend-note {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* HIGHLIGHT AUSTRALIA */
+
+path.Australia, path.Fiji, path.Federated.States.of.Micronesia, path.New.Zealand, path.Papua.New.Guinea, path.Samoa, 
+path.Solomon.Islands, path.Tonga, path.Vanuatu, path.American.Samoa, path.French.Polynesia, path.New.Caledonia, 
+path.Northern.Marina.Islands, #MH, #NR, #PW, #TV, #GU {
+  fill: #ff7e00 !important;
+  cursor: pointer;
+}
+
+ 
+/* HOVER EFFECT FOR AUSTRALIA */
+
+path.Australia:hover, path.Fiji:hover, path.Federated.States.of.Micronesia:hover, path.New.Zealand:hover, 
+path.Papua.New.Guinea:hover, path.Samoa:hover, path.Solomon.Islands:hover, path.Tonga:hover, path.Vanuatu:hover, 
+path.American.Samoa:hover, path.French.Polynesia:hover, path.New.Caledonia:hover, path.Northern.Marina.Islands:hover, 
+#MH:hover, #NR:hover, #PW:hover, #TV:hover, #GU:hover  {
+  fill: #b35c00 !important;
+}
+
+.australia-hero {
+  margin-top: 20px;
+}
+
+.australia-hero h1 {
+  margin-top: 3rem;
+  margin-bottom: 8px;
+}
+
+.australia-hero p {
+  margin-top: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.australia-map-frame {
+  width: 78%;
+  max-width: 900px;
+  height: 520px;
+  margin: 0 auto 40px auto;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.australia-map-inner {
+  width: 100%;
+  height: 100%;
+  position: relative; 
+}
+
+/* after zoom Australia landing, where it lands */
+/* width: <smaller # = more zoomed OUT>  <larger # = more zoomed IN>*/
+/* top: <more negative/smaller positive #  = moves map UP> <larger positive # = moves map DOWN> */
+/* left: <more negative/smaller positive # = moves map LEFT> <larger positive # = moves map RIGHT>*/
+
+.australia-map-inner svg {
+  width: 3200px;
+  height: auto;
+  position: absolute;
+  top: -800px;
+  left: -2400px;
+}
+
+/* zoom toward Australia, where the motion goes */
+/* translate(x, y) - inc x = right,dec x = left, inc y= up,dec y= down*/
+
+.zoom-au {
+  transform: scale(1.85) translate(-500px, -200px);
+}
+
+/* fade heading a little during zoom */
+
+.fade-out {
+  opacity: 0.12;
+}
+
+
+/* Australia zoom transitions */
+
+/* Make other countries fade out on continent page */
+
+
+/* Highlight Australia only */
+
+.australia-map-inner path {
+  fill: #e9dfcf;
+  opacity: 0.25;
+  stroke: #5a4632;
+  stroke-width: 0.7;
+}
+
+.australia-map-inner path.Australia, .australia-map-inner path.Fiji, .australia-map-inner path.Federated.States.of.Micronesia, 
+.australia-map-inner path.New.Zealand, .australia-map-inner path.Papua.New.Guinea, .australia-map-inner path.Samoa, 
+.australia-map-inner path.Solomon.Islands, .australia-map-inner path.Tonga, .australia-map-inner path.Vanuatu, 
+.australia-map-inner path.American.Samoa, .australia-map-inner path.French.Polynesia, .australia-map-inner path.New.Caledonia, 
+.australia-map-inner path.Northern.Marina.Islands, .australia-map-inner #MH, .australia-map-inner #NR, .australia-map-inner #PW, 
+.australia-map-inner #TV, .australia-map-inner #GU {
+  fill: #ff7e00 !important;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+.australia-map-inner path.Australia:hover,
+.australia-map-inner path.Fiji:hover,
+.australia-map-inner path.New.Zealand:hover {
+  fill: #b35c00 !important;
+}
+
+
+

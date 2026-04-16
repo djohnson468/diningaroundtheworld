@@ -1,0 +1,880 @@
+/* ============================================
+   Dining Around the World
+   Personal Page · North America Edition
+   ============================================ */
+
+/* --- CSS Variables ----------------------------------------- */
+/*------Root- defines variables to make it easier to change aspects in the code-------*/
+:root {
+  --warm-off-white:   #f7f3eb;
+  --pale-blue-gray:   #edf3f7;
+  --pale-parchment    #f3ecdf;
+  --cool-off-white:   #eef4f7;
+  --navy-blue:        #000036;
+  --green-faint:      #D4E8C8;
+
+  --brown-dark:       #3d3228;
+  --brown-mid:        #5C4A2A;
+  --brown-light:      #7A6A52;
+  --brown-faint:      #C2B49A;
+
+  --photo-bg:         #D9CBB0;
+
+  --nav-width:        80px;
+
+  --font-display:     'EB Garamond', Georgia, serif;
+  --font-body:        'Cormorant Garamond', Georgia, serif;
+  --font-ui:          'Jost', sans-serif;
+  --blue:           #4a90e2;
+  --blue-light:     rgba(74, 144, 226, 0.15);
+  --blue-mid:       rgba(74, 144, 226, 0.35);
+  --red-mail:       #c0392b;
+  --parchment:      #f5f0e8;
+  --parchment-light:#faf7f2;
+  --parchment-dark: #e8e0cc;
+  --parchment-border: rgba(181, 168, 130, 0.45);
+  --ink:            #2c2416;
+  --ink-light:      #5a4f3a;
+  --ink-faint:      rgba(44, 36, 22, 0.35);
+  --stamp-bg:       #fdfaf4;
+  --font-display:   'Playfair Display', Georgia, serif;
+  --font-typewriter:'Special Elite', 'Courier New', monospace;
+  --font-body:      'DM Sans', sans-serif;
+}
+
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ 
+html {
+  scroll-behavior: smooth;	/* scroll behavior controls how the page moves when you click somewhere on the page */
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  background-color: #f3ecdf;
+  color: #1a1714;
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;	/*overflow takes care of the extra content that doesn't fit on the page*/
+}
+
+/* ============================================
+   			BANNER
+   ============================================ */
+
+.banner {
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
+  background:
+	radial-gradient(circle at top center, rgba(0, 0, 54, 0.10), transparent 35%),
+	linear-gradient(135deg, #10263f 0%, #1d3d5c 45%, #2f5f8f 100%);
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  border: 1px solid rgba(198, 151, 57, 0.6);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.banner-inner {
+  max-width: 760px;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.banner-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.75);
+  margin-bottom: 16px;
+}
+
+.banner-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  color: #f5f1e8;
+  line-height: 0.95;
+  margin-bottom: 18px;
+}
+ 
+.banner-divider {
+  height: 2px;
+  width: 140px;
+  background: rgba(198, 151, 57, 0.78);
+  opacity: 0.9;
+  margin: 10px auto 22px;
+}
+
+.banner-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-style: italic;
+  color: rgba(245, 241, 232, 0.82);
+  line-height: 1.6;
+}
+
+
+/* ============================================
+   BACK BUTTON (sticky, top-left)
+   ============================================ */
+.back-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  padding: 10px 18px 10px 14px;
+  text-decoration: none;
+  color: #1a1714;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.back-btn:hover {
+  background: #fff;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.back-btn svg {
+  flex-shrink: 0;
+}
+
+/* ============================================
+   SIDE NAV (sticky, right)
+   ============================================ */
+.side-nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.side-nav-label {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 8px;
+  text-align: right;
+}
+
+.side-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.25s;
+  flex-direction: row-reverse;
+}
+
+.nav-link:hover {
+  color: #1a1714;
+}
+
+.nav-link.active {
+  color: #1a1714;
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  transition: background 0.25s, transform 0.25s;
+  flex-shrink: 0;
+}
+
+.nav-link.active .nav-dot {
+  background: currentColor;
+  transform: scale(1.3);
+}
+
+
+/* ============================================
+   		COUNTRY SECTION
+   ============================================ */
+.country-section {
+  padding-bottom: 100px;
+}
+
+/* ============================================
+   		  FLAG BANNER
+   ============================================ */
+.flag-banner {
+  position: relative;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+/* Flag backgrounds using CSS gradients that mimic flag colors, 
+   layered very transparently so it's mostly a color wash */
+ 
+ 
+/* ============================================
+   BAHAMAS
+   Aquamarine, gold, and black
+   Three horizontal stripes (aquamarine/gold/aquamarine)
+   with a black triangle on the left side
+   ============================================ */
+ 
+.bahamas-flag {
+  background:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.25) 18%,
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 168, 168, 0.55) 0%,
+      rgba(0, 168, 168, 0.3)  33%,
+      rgba(255, 199, 44, 0.35) 33%,
+      rgba(255, 199, 44, 0.55) 50%,
+      rgba(255, 199, 44, 0.35) 66%,
+      rgba(0, 168, 168, 0.3)  66%,
+      rgba(0, 168, 168, 0.55) 100%
+    ),
+    #e8f6f6;
+}
+
+ 
+/* ============================================
+   BARBADOS
+   Ultramarine blue, gold, and a black trident
+   Three vertical stripes: blue, gold, blue
+   ============================================ */
+
+.barbados-flag {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 32, 91, 0.55)   0%,
+      rgba(0, 32, 91, 0.55)    33%,
+      rgba(255, 198, 30, 0.55) 33%,
+      rgba(255, 198, 30, 0.55) 50%,
+      rgba(255, 198, 30, 0.55) 66%,
+      rgba(0, 32, 91, 0.55)    66%,
+      rgba(0, 32, 91, 0.55)   100%
+    ),
+    #e9ecf5;
+}
+ 
+ 
+/* ============================================
+   CANADA
+   Red, white, red — with central maple leaf
+   Two vertical red bands flanking white centre
+   ============================================ */
+.canada-flag {
+  background:
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(255, 0, 0, 0.55) 0%,
+      rgba(255, 0, 0, 0.55) 18%,
+      transparent 30%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.55)   0%,
+      rgba(255, 0, 0, 0.55)    25%,
+      rgba(255, 255, 255, 0.5) 25%,
+      rgba(255, 255, 255, 0.5) 75%,
+      rgba(255, 0, 0, 0.55)    75%,
+      rgba(255, 0, 0, 0.55)   100%
+    ),
+    #fdf2f2;
+}
+ 
+ 
+/* ============================================
+   DOMINICAN REPUBLIC
+   Blue, red quartered by a white cross
+   Blue top-left & bottom-right / Red top-right & bottom-left
+   ============================================ */
+.dominican-republic-flag {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 44%,
+      rgba(255, 255, 255, 0.82) 44%,
+      rgba(255, 255, 255, 0.82) 56%,
+      transparent 56%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 44%,
+      rgba(255, 255, 255, 0.82) 44%,
+      rgba(255, 255, 255, 0.82) 56%,
+      transparent 56%
+    ),
+    linear-gradient(
+      to right,
+      rgba(0, 45, 156, 0.42) 0%,
+      rgba(0, 45, 156, 0.42) 50%,
+      rgba(206, 17, 38, 0.42) 50%,
+      rgba(206, 17, 38, 0.42) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 45, 156, 0.22) 0%,
+      rgba(0, 45, 156, 0.22) 50%,
+      rgba(206, 17, 38, 0.22) 50%,
+      rgba(206, 17, 38, 0.22) 100%
+    ),
+    #f4f6fb;
+}
+ 
+ 
+/* ============================================
+   JAMAICA
+   Black, gold, and green
+   Gold diagonal cross (saltire) dividing
+   black hoist/fly triangles and green top/bottom
+   ============================================ */
+
+.jamaica-flag {
+  background:
+    /* Gold saltire — top-left to bottom-right diagonal band */
+    linear-gradient(
+      45deg,
+      transparent              0%,
+      transparent              43%,
+      rgba(255, 182, 0, 0.70)  43%,
+      rgba(255, 182, 0, 0.70)  57%,
+      transparent              57%,
+      transparent              100%
+    ),
+    /* Gold saltire — top-right to bottom-left diagonal band */
+    linear-gradient(
+      -45deg,
+      transparent              0%,
+      transparent              43%,
+      rgba(255, 182, 0, 0.70)  43%,
+      rgba(255, 182, 0, 0.70)  57%,
+      transparent              57%,
+      transparent              100%
+    ),
+    /* Green top & bottom triangles */
+    linear-gradient(
+      180deg,
+      rgba(0, 162, 68, 0.55) 0%,
+      rgba(0, 162, 68, 0.55) 50%,
+      rgba(0, 162, 68, 0.55) 50%,
+      rgba(0, 162, 68, 0.55) 100%
+    ),
+    /* Black left & right triangles — layered via diagonal */
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.45) 50%,
+      rgba(0, 0, 0, 0.45) 50%,
+      rgba(0, 0, 0, 0.45) 100%
+    ),
+    #f0f8ef;
+}
+ 
+ 
+/* ============================================
+   MEXICO
+   Green, white, red — three vertical stripes
+   Eagle emblem sits at centre (represented
+   by a warm olive radial hint)
+   ============================================ */
+.mexico-flag {
+  background:
+    
+/* Eagle emblem — warm brown radial in white centre */
+
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(95, 15, 18, 0.45) 0%,
+      rgba(95, 15, 18, 0.22) 12%,
+      transparent 20%),
+
+    linear-gradient(
+      90deg,
+      rgba(0, 104, 71, 0.55)   0%,
+      rgba(0, 104, 71, 0.3)    33%,
+      rgba(255, 255, 255, 0.55) 33%,
+      rgba(255, 255, 255, 0.55) 66%,
+      rgba(206, 17, 38, 0.3)   66%,
+      rgba(206, 17, 38, 0.55)  100%),
+   
+    #f2f9f5;
+}
+ 
+ 
+/* ============================================
+   PUERTO RICO
+   Five horizontal stripes (red & white)
+   with a blue triangle on left
+   ============================================ */
+.puerto-rico-flag {
+  background:
+    /* Blue triangle on left */
+    linear-gradient(
+      to right,
+      rgba(0, 56, 147, 0.55) 0%,
+      rgba(0, 56, 147, 0.35) 20%,
+      transparent 38%
+    ),
+    /* Five red & white stripes */
+    repeating-linear-gradient(
+      180deg,
+      rgba(240, 52, 52, 0.5)   0px,
+      rgba(240, 52, 52, 0.5)   20%,
+      rgba(255, 255, 255, 0.45) 20%,
+      rgba(255, 255, 255, 0.45) 40%,
+      rgba(240, 52, 52, 0.5)   40%,
+      rgba(240, 52, 52, 0.5)   60%,
+      rgba(255, 255, 255, 0.45) 60%,
+      rgba(255, 255, 255, 0.45) 80%,
+      rgba(240, 52, 52, 0.5)   80%,
+      rgba(240, 52, 52, 0.5)   100%
+    ),
+    #f0f3fb;
+}
+ 
+ 
+/* ============================================
+   TRINIDAD & TOBAGO
+   Red field with black diagonal stripe
+   bordered by white — runs top-left to bottom-right
+   ============================================ */
+
+.trinidad-tobago-flag {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(206, 17, 38, 0.48) 0%,
+      rgba(206, 17, 38, 0.48) 38%,
+      rgba(255,255,255,0.55) 38%,
+      rgba(255,255,255,0.55) 43%,
+      rgba(0,0,0,0.38) 43%,
+      rgba(0,0,0,0.38) 57%,
+      rgba(255,255,255,0.55) 57%,
+      rgba(255,255,255,0.55) 62%,
+      rgba(206, 17, 38, 0.48) 62%,
+      rgba(206, 17, 38, 0.48) 100%
+    ),
+    #f8e9ec;
+}
+
+.flag-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(250, 248, 244, 0.1) 0%,
+    rgba(250, 248, 244, 0.05) 40%,
+    rgba(250, 248, 244, 0.6) 100%
+  );
+}
+
+.flag-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.country-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 7vw, 80px);
+  font-weight: 700;
+  color: #1a1714;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.country-tagline {
+  font-size: 1.2rem;
+  color: rgba(0, 0, 54, 0.8);
+  font-weight: 400;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.01em;
+}
+
+/* ============================================
+   DISHES GRID
+   ============================================ */
+.dishes-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 0 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 32px;
+}
+
+/* ============================================
+   		DISH CARD
+   ============================================ */
+.dish-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px;
+  border: 1px solid rgba(0,0,0,0.07);
+  transition: transform 0.25s, box-shadow 0.25s;
+
+  height: 760px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.dish-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+}
+
+.dish-card--wide {
+  grid-column: 1 / -1;
+}
+
+.dish-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.dish-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #c4963a;
+  letter-spacing: 0.05em;
+  padding-top: 4px;
+  flex-shrink: 0;
+  min-width: 28px;
+}
+
+.dish-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1714;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.dish-origin {
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dish-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+/* ============================================
+   		OBJECT-POSITION IMAGES
+   ============================================ */
+
+/* object-position function tells browser which part of the image to show. it slides the window over the image say your image container cut off the top section of your image that you wanted showm. well adjusting your object position allows you to see a different section of the photo. (bigger number = moves image down more. smaller number = moves image up) */
+
+.prlundin2-img {
+  object-position: center 65%;
+}
+
+.jmbreakfast-img {
+  object-position: center 65%;
+}
+
+.cabreakfast-img {
+  object-position: center 75%;
+}
+
+.bslundin-img {
+  object-position: center bottom;
+}
+
+/* ========================================================== */
+
+
+.dish-about {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: #4a4540;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.dish-about a {
+  color: #6c5b45;
+  font-style: italic;
+  text-decoration: none;
+  transition: 0.2s ease;
+  margin-bottom: 28px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(108,91,69,0.4);
+}
+
+.dish-about a:hover {
+  color: #c4963a;
+  border-bottom color: #c4963a;
+}
+
+.dish-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.dish-sections--row {
+  grid-template-columns: 1fr 1fr;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c4963a;
+  margin-bottom: 12px;
+}
+
+/* Ingredients */
+.ingredient-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ingredient-list li {
+  font-size: 13.5px;
+  color: #3a3530;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.ingredient-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 1px;
+  background: #c4963a;
+}
+
+/* Method steps */
+.method-steps {
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.method-steps li {
+  counter-increment: step;
+  font-size: 13.5px;
+  color: #3a3530;
+  padding-left: 28px;
+  position: relative;
+  line-height: 1.55;
+}
+
+.method-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  color: #c4963a;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+/* ============================================
+   		SCROLLBAR
+   ============================================ */
+
+/* The scroll bar element */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* The Scrollable Handle on the Scroll Bar*/
+::-webkit-scrollbar-thumb {
+  background: #c4963a;
+  border-radius: 10px;
+}
+
+/* The Scrollable Handle on the Scroll Bar*/
+::-webkit-scrollbar-thumb:hover {
+  background: #9d7931;
+  border-radius: 10px;
+}
+
+
+/* ============================================
+   		FOOTER
+   ============================================ */
+.page-footer {
+  background: #000036;
+  color: rgba(250, 248, 244, 0.7);
+  padding: 10px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;		/* flex-start starts content at the beginning of a container (typically the left side) */
+}
+
+.page-footer a {
+  color: #c4963a;
+}
+
+.footer-logo {
+  width: 150px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.footer-content {
+  text-align: center;
+  flex: 1;
+}
+
+.footer-content p {
+  margin: 4px 0;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: #c4963a; 
+}
+
+.footer-content strong {
+  color: rgba(250, 248, 244, 0.9);
+}
+
+/* ============================================
+   		RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .dishes-grid {
+    padding: 0 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .dish-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .dish-sections--row {
+    grid-template-columns: 1fr;
+  }
+
+  .side-nav {
+    display: none;
+  }
+
+  .back-btn span {
+    display: none;
+  }
+
+  .back-btn {
+    padding: 10px 12px;
+    border-radius: 50%;
+  }
+
+  .dish-card--wide {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .flag-banner {
+    height: 240px;
+  }
+
+  .country-title {
+    font-size: 40px;
+  }
+
+  .hero-title {
+    font-size: 44px;
+  }
+
+  .dish-card {
+    padding: 24px;
+  }
+}
