@@ -15,40 +15,125 @@ function hideTooltip() {
   tooltip.style.display = "none";
 }
 
-
-
 /* Clickable Countries */
 
+// Argentina Click
+
+document.querySelectorAll(".Argentina").forEach(country => { 
+ country.addEventListener("click", () => { 
+  window.location.href = "SouthAmericanCountriesCode.html#argentina"; 
+}); 
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "Argentina"); 
+}); 
+
+country.addEventListener("mousemove", (e) => { 
+ showTooltip(e, "Argentina"); 
+}); 
+
+country.addEventListener("mouseleave", hideTooltip); 
+});
+
+// Brazil Click
+
+const brazil = document.getElementById("BR"); 
+ if (brazil) { brazil.addEventListener("click", () => { 
+  window.location.href = "SouthAmericanCountriesCode.html#brazil"; 
+ }); 
+
+brazil.addEventListener("mouseenter", (e) => { 
+showTooltip(e, "Brazil"); 
+}); 
+
+brazil.addEventListener("mousemove", (e) => { 
+showTooltip(e, "Brazil"); 
+}); 
+
+brazil.addEventListener("mouseleave", hideTooltip); 
+
+}
+
+// Chile Click
+
+document.querySelectorAll(".Chile").forEach(country => { 
+ country.addEventListener("click", () => { 
+  window.location.href = "SouthAmericanCountriesCode.html#chile"; 
+}); 
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "Chile"); 
+}); 
+
+country.addEventListener("mousemove", (e) => { 
+ showTooltip(e, "Chile"); 
+}); 
+
+country.addEventListener("mouseleave", hideTooltip); 
+});
+
+
+// Colombia Click
+
+const colombia = document.getElementById("CO"); 
+ if (colombia) { colombia.addEventListener("click", () => { 
+  window.location.href = "SouthAmericanCountriesCode.html#colombia"; 
+ }); 
+
+colombia.addEventListener("mouseenter", (e) => { 
+showTooltip(e, "Colombia"); 
+}); 
+
+colombia.addEventListener("mousemove", (e) => { 
+showTooltip(e, "Colombia"); 
+}); 
+
+colombia.addEventListener("mouseleave", hideTooltip); 
+
+}
+
+
+// Peru Click
+
+const peru = document.getElementById("PE"); 
+ if (peru) { peru.addEventListener("click", () => { 
+  window.location.href = "SouthAmericanCountriesCode.html#colombia"; 
+ }); 
+
+peru.addEventListener("mouseenter", (e) => { 
+showTooltip(e, "Peru"); 
+}); 
+
+peru.addEventListener("mousemove", (e) => { 
+showTooltip(e, "Peru"); 
+}); 
+
+peru.addEventListener("mouseleave", hideTooltip); 
+
+}
+
+// Venezuela Click
+
+const venezuela = document.getElementById("VE"); 
+ if (venezuela) { venezuela.addEventListener("click", () => { 
+  window.location.href = "SouthAmericanCountriesCode.html#venezuela"; 
+ }); 
+
+venezuela.addEventListener("mouseenter", (e) => { 
+showTooltip(e, "Venezuela"); 
+}); 
+
+venezuela.addEventListener("mousemove", (e) => { 
+showTooltip(e, "Venezuela"); 
+}); 
+
+venezuela.addEventListener("mouseleave", hideTooltip); 
+
+}
 
 /* All Tooltip (NON-CLICKABLE) Country Names */
 
 /* Classes */
-
-document.querySelectorAll(".Argentina").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Argentina");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Argentina");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
-
-document.querySelectorAll(".Chile").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Chile");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Chile");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
 
 document.querySelectorAll(".Falkland.Islands").forEach(country => {
   country.addEventListener("mouseenter", (e) => {
@@ -65,55 +150,6 @@ document.querySelectorAll(".Falkland.Islands").forEach(country => {
 
 
 /* IDs */
-
-
-const brazil = document.getElementById("BR");
-
-if (brazil) {
-
-  brazil.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Brazil");
-  });
-
-  brazil.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Brazil");
-  });
-
-  brazil.addEventListener("mouseleave", hideTooltip);
-
-}
-
-const peru = document.getElementById("PE");
-
-if (peru) {
-
-  peru.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Peru");
-  });
-
-  peru.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Peru");
-  });
-
-  peru.addEventListener("mouseleave", hideTooltip);
-
-}
-
-const colombia = document.getElementById("CO");
-
-if (colombia) {
-
-  colombia.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Colombia");
-  });
-
-  colombia.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Colombia");
-  });
-
-  colombia.addEventListener("mouseleave", hideTooltip);
-
-}
 
 const bolivia = document.getElementById("BO");
 
@@ -147,22 +183,6 @@ if (ecuador) {
 
 }
 
-
-const venezuela = document.getElementById("VE");
-
-if (venezuela) {
-
-  venezuela.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Venezuela");
-  });
-
-  venezuela.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Venezuela");
-  });
-
-  venezuela.addEventListener("mouseleave", hideTooltip);
-
-}
 
 const paraguay = document.getElementById("PY");
 
