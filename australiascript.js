@@ -19,37 +19,66 @@ function hideTooltip() {
 
 /* Clickable Countries */
 
+// Australia Click
+
+document.querySelectorAll(".Australia").forEach(country => { 
+ country.addEventListener("click", () => { 
+  window.location.href = "australia-dishes.html#AU"; 
+}); 
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "Australia"); 
+}); 
+
+country.addEventListener("mousemove", (e) => { 
+ showTooltip(e, "Australia"); 
+}); 
+
+country.addEventListener("mouseleave", hideTooltip); 
+});
+
+
+// Fiji Click
+
+document.querySelectorAll(".Fiji").forEach(country => { 
+ country.addEventListener("click", () => { 
+  window.location.href = "australia-dishes.html#FJ"; 
+}); 
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "Fiji"); 
+}); 
+
+country.addEventListener("mousemove", (e) => { 
+ showTooltip(e, "Fiji"); 
+}); 
+
+country.addEventListener("mouseleave", hideTooltip); 
+});
+
+// New Zealand Click
+
+document.querySelectorAll(".New.Zealand").forEach(country => { 
+ country.addEventListener("click", () => { 
+  window.location.href = "australia-dishes.html#NZ"; 
+}); 
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "New Zealand"); 
+}); 
+
+country.addEventListener("mousemove", (e) => { 
+ showTooltip(e, "New Zealand"); 
+}); 
+
+country.addEventListener("mouseleave", hideTooltip); 
+});
+
 
 /* All Tooltip (NON-CLICKABLE) Country Names */
 
 
 /* Classes */
-
-document.querySelectorAll(".Australia").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Australia");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Australia");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
-
-document.querySelectorAll(".Fiji").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Fiji");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Fiji");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
 
 document.querySelectorAll(".Federated.States.of.Micronesia").forEach(country => {
   country.addEventListener("mouseenter", (e) => {
@@ -64,18 +93,6 @@ document.querySelectorAll(".Federated.States.of.Micronesia").forEach(country => 
 
 });
 
-document.querySelectorAll(".New.Zealand").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "New Zealand");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "New Zealand");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
 
 document.querySelectorAll(".Papua.New.Guinea").forEach(country => {
   country.addEventListener("mouseenter", (e) => {
