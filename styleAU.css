@@ -1,0 +1,720 @@
+/* ============================================================
+   Australia & Oceania Dishes — Stylesheet
+   Palette: Apple-inspired (Clean & Minimal)
+   Author: Sowande Crews
+   Project: Dining Around the World
+   ============================================================ */
+
+
+/* ============================================================
+   CSS VARIABLES
+   Define all reusable colors, fonts, and sizes here.
+   Use var(--name) anywhere in the file to reference them.
+   ============================================================ */
+:root {
+  /* Backgrounds */
+  --parchment: #f5f5f7;
+  /* main page background (light gray) */
+  --parchment-light: #ffffff;
+  /* card background (pure white) */
+  --parchment-dark: #d2d2d7;
+  /* borders and dividers */
+  --parchment-border: #d2d2d7;
+  /* border color alias */
+
+  /* Text & accent colors */
+  --green-dark: #1d1d1f;
+  /* primary text (near-black) */
+  --green-mid: #0071e3;
+  /* Apple blue — used for accents/buttons */
+  --green-light: #2997ff;
+  /* lighter blue — hover state */
+  --green-muted: #6e6e73;
+  /* secondary/muted text */
+  --green-pale: #86868b;
+  /* even lighter gray text */
+  --green-faint: #f5f5f7;
+  /* very light background tint */
+
+  /* Browns (kept for compatibility with ingredient/method text) */
+  --brown-dark: #1d1d1f;
+  --brown-mid: #424245;
+  --brown-light: #6e6e73;
+  --brown-faint: #d2d2d7;
+
+  /* Gold2 used for country title color in flag banners */
+  --gold2: #f5f5f7;
+
+  /* Fonts — Apple system font stack */
+  --font-display: -apple-system, 'SF Pro Display', 'Inter', 'Helvetica Neue', sans-serif;
+  --font-body: -apple-system, 'SF Pro Text', 'Inter', 'Helvetica Neue', sans-serif;
+  --font-ui: -apple-system, 'SF Pro Text', 'Inter', 'Helvetica Neue', sans-serif;
+}
+
+
+/* ============================================================
+   RESET & BASE STYLES
+   Remove default browser margin/padding and set box-sizing
+   so padding is included in element widths.
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Makes anchor link scrolling animate smoothly instead of jumping */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  background-color: var(--parchment);
+  color: var(--brown-dark);
+  line-height: 1.7;
+  font-size: 16px;
+  /* Prevent horizontal scrollbar from appearing */
+  overflow-x: hidden;
+}
+
+
+/* ============================================================
+   BACK BUTTON
+   Fixed pill button in the top-left corner.
+   Takes the user back to the main world map page.
+   ============================================================ */
+.back-btn {
+  position: fixed;
+  /* stays in place when scrolling */
+  top: 24px;
+  left: 24px;
+  z-index: 100;
+  /* sits above all other content */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  /* frosted glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  /* Safari support */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  /* fully rounded pill shape */
+  padding: 10px 18px 10px 14px;
+  text-decoration: none;
+  color: #1a1714;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.back-btn:hover {
+  background: #fff;
+  transform: translateX(-3px);
+  /* slides left slightly on hover */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+
+
+/* ============================================================
+   TOP NAV BAR
+   Fixed horizontal navigation at the top center of the page.
+   Links scroll to each country section (AU, NZ, FJ).
+   Active link is highlighted by JavaScript as you scroll.
+   ============================================================ */
+.side-nav {
+  position: fixed;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* centers it — left:50% + translateX(-50%) = centered */
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+/* "Navigate" label above the links */
+.side-nav-label {
+  font-size: 11px;
+  /* FIX: was 30px — reduced to a readable size */
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #0071e3;
+  /* Apple blue */
+  margin-bottom: 1px;
+  text-align: center;
+}
+
+/* The horizontal list of nav links */
+.side-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  /* lays links out side-by-side */
+  gap: 24px;
+  align-items: center;
+}
+
+/* Individual nav link */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #0071e3;
+  /* Apple blue */
+  font-size: 14px;
+  /* FIX: was 30px — reduced to a readable nav size */
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.25s;
+  flex-direction: row;
+}
+
+.nav-link:hover {
+  color: #2997ff;
+  /* brighter blue on hover */
+}
+
+/* Active link (the section currently in view) */
+.nav-link.active {
+  color: #2997ff;
+}
+
+/* Small dot beside each nav label */
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  /* inherits the link's color */
+  transition: background 0.25s, transform 0.25s;
+  flex-shrink: 0;
+}
+
+/* When active: fill the dot and scale it up slightly */
+.nav-link.active .nav-dot {
+  background: currentColor;
+  transform: scale(1.3);
+}
+
+
+
+
+/* ============================================================
+   HERO BANNER
+   Full-viewport-height header at the top of the page.
+   Dark background with centered title text.
+   ============================================================ */
+.banner {
+  background: var(--green-dark);
+  /* near-black background */
+  border-bottom: 1px solid var(--parchment);
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  height: 100vh;
+  /* fills the full viewport height */
+  width: 100vw;
+  /* fills the full viewport width */
+  max-width: 100%;
+  margin-left: calc(50% - 50vw);
+  /* breaks out of any parent padding */
+  margin-right: calc(50% - 50vw);
+}
+
+/* Decorative inner border lines (top and bottom of banner) */
+.banner::before,
+.banner::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  height: 0;
+  border-top: 2px solid var(--parchment-light);
+  opacity: 0.25;
+}
+
+.banner::before {
+  top: 8px;
+}
+
+.banner::after {
+  bottom: 8px;
+}
+
+
+
+/* Centered text block inside the banner */
+.banner-center {
+  text-align: center;
+  flex: 1;
+}
+
+/* Small uppercase label above the main title */
+.banner-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 30px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--brown-faint);
+  margin-bottom: 20px;
+}
+
+/* Main page title */
+.banner-title {
+  font-family: var(--font-display);
+  font-size: 100px;
+  font-weight: 700;
+  color: var(--parchment-dark);
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+/* Italic subtitle below the title */
+.banner-tagline {
+  font-family: var(--font-body);
+  font-size: 30px;
+  font-style: italic;
+  color: var(--brown-light);
+}
+
+
+/* ============================================================
+   MAIN CONTENT CONTAINER
+   Adds large margins around the main content area so
+   it doesn't touch the edges of the screen.
+   ============================================================ */
+.main-cont {
+  margin: 100px;
+}
+
+
+/* ============================================================
+   COUNTRY SECTION
+   Each country (Australia, NZ, Fiji) is wrapped in one of these.
+   Provides spacing between sections.
+   ============================================================ */
+.country-section {
+  padding-bottom: 100px;
+}
+
+
+/* ============================================================
+   FLAG BANNER
+   Wide decorative banner at the top of each country section.
+   Displays the national flag as a background image with
+   a text overlay showing the country name and tagline.
+   ============================================================ */
+.flag-banner {
+  position: relative;
+  height: 320px;
+  width: 140%;
+  /* wider than its parent to bleed out to the edges */
+  margin-left: -20%;
+  /* pulls it left to compensate for the extra width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+/* --- National Flag Backgrounds --- */
+
+/* Australia — deep royal blue with the Southern Cross */
+.au-flag {
+  background-image: url("australia_flag.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #00008B;
+  /* fallback color if image fails to load */
+}
+
+/* New Zealand — similar to Australia but with 4 red stars */
+.nz-flag {
+  background-image: url("newzealand_flag.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #00247D;
+}
+
+/* Fiji — light blue with the coat of arms */
+.fj-flag {
+  background-image: url("fiji_flag.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #68BFE5;
+}
+
+/* Gradient overlay — fades the flag image toward the bottom
+   so the text content is legible */
+.flag-overlay {
+  position: absolute;
+  inset: 0;
+  /* shorthand for top/right/bottom/left: 0 */
+  background: linear-gradient(to bottom,
+      rgba(250, 248, 244, 0.05) 30%,
+      rgba(250, 248, 244, 0.1) 50%,
+      rgba(250, 248, 244, 0.6) 100%);
+}
+
+/* Text container inside the flag banner (sits above the overlay) */
+.flag-content {
+  position: relative;
+  z-index: 1;
+  /* above the overlay */
+  text-align: center;
+}
+
+/* Large flag emoji above the country name */
+.flag-emoji {
+  font-size: 52px;
+  display: block;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+/* Country name heading */
+.country-title {
+  text-shadow: 3px 3px 5px grey;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 7vw, 80px);
+  /* scales with viewport, min 48px max 80px */
+  font-weight: 700;
+  color: var(--gold2);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+/* Short italic description below the country name */
+.country-tagline {
+  text-shadow: 3px 4px 5px black;
+  font-size: 17px;
+  color: var(--parchment-dark);
+  font-weight: 300;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.01em;
+}
+
+
+/* ============================================================
+   DISHES GRID
+   Responsive 2-column grid that holds the dish cards.
+   Automatically drops to 1 column on smaller screens.
+   ============================================================ */
+.dishes-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 0 100px;
+  display: grid;
+  /* auto-fit: fills as many columns as fit; minmax: each min 420px wide */
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 32px;
+}
+
+
+/* ============================================================
+   DISH CARD
+   Individual card for each dish. Contains:
+   - Dish name + origin
+   - Photo
+   - YouTube video tutorial
+   - Ingredients list
+   - Method steps
+   ============================================================ */
+.dish-card {
+  background: var(--parchment-light);
+  /* white card */
+  border-radius: 16px;
+  /* FIX: removed fixed height:500px — card now grows to fit its content */
+  height: auto;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  padding: 36px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+/* Lifts the card slightly when hovered */
+.dish-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+}
+
+/* Header row: dish name on the left, origin label below */
+.dish-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+
+
+/* Dish name heading */
+.dish-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--green-light);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+/* Country label below the dish name */
+.dish-origin {
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Dish photo image */
+.dish-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  /* crops image to fill without distorting */
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   YOUTUBE VIDEO EMBED
+   Responsive 16:9 video container using the padding-bottom
+   trick so the iframe maintains aspect ratio at any width.
+   ============================================================ */
+.dish-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  /* 56.25% = 9/16 — creates 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.dish-video iframe {
+  position: absolute;
+  /* fills the .dish-video container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Container for the Ingredients and Methods sections */
+.dish-sections {
+  display: grid;
+  grid-template-rows: auto auto;
+  /* two stacked rows */
+  gap: 24px;
+}
+
+
+
+/* "INGREDIENTS" / "METHODS" uppercase label */
+.section-label {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-muted);
+  margin-bottom: 0px;
+}
+
+/* ============================================================
+   INGREDIENTS LIST
+   Custom bullet style using ::before pseudo-elements
+   instead of the default list bullet.
+   ============================================================ */
+.ingredient-list {
+  list-style-type: none;
+  /* hide default bullets */
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.ingredient-list li {
+  font-size: 13.5px;
+  color: var(--brown-dark);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+
+/* Custom dash bullet for each ingredient */
+.ingredient-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 1px;
+  background: var(--green-muted);
+}
+
+/* ============================================================
+   METHOD STEPS
+   Numbered list using CSS counters so numbers
+   are styled with the Playfair Display font.
+   ============================================================ */
+.method-steps {
+  list-style: none;
+  counter-reset: step;
+  /* start counting from 0 */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.method-steps li {
+  counter-increment: step;
+  /* add 1 for each item */
+  font-size: 13.5px;
+  color: var(--brown-dark);
+  padding-left: 28px;
+  position: relative;
+  line-height: 1.55;
+}
+
+/* Step number displayed before each list item */
+.method-steps li::before {
+  content: counter(step);
+  /* shows the current count */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  color: var(--green-muted);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   PRONUNCIATION BUTTON
+   Small icon button next to the dish name.
+   Clicking it uses the Web Speech API to speak the dish name.
+   ============================================================ */
+.pronounce-btn {
+  background: none;
+  border: 1.5px solid var(--green-pale, #9AB88A);
+  border-radius: 50%;
+  /* circular button */
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  margin-left: 10px;
+  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+  position: relative;
+  top: -2px;
+  /* slight upward offset to align with text */
+}
+
+.pronounce-btn:hover {
+  background: var(--green-faint, #D4E8C8);
+  transform: scale(1.1);
+  border-color: var(--green-mid, #3B5C2F);
+}
+
+.pronounce-btn:active {
+  transform: scale(0.95);
+}
+
+/* Pulsing state while speech is playing */
+.pronounce-btn.speaking {
+  background: var(--green-faint, #D4E8C8);
+  border-color: var(--green-mid, #3B5C2F);
+  animation: pulse-speak 0.8s ease infinite;
+}
+
+.pronounce-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--green-mid, #3B5C2F);
+}
+
+/* Pulse animation for the speaking state */
+@keyframes pulse-speak {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+
+/* ============================================================
+   FOOTER
+   Dark footer bar at the bottom of the page.
+   Contains a logo image and project/author info.
+   ============================================================ */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 20px;
+}
+
+/* Footer logo image (left side) */
+.footer-logo {
+  width: 150px;
+  opacity: 0.9;
+  height: auto;
+  margin-right: 15px;
+}
+
+/* Footer text block (right of logo) */
+.footer-content {
+  flex: 1;
+  text-align: center;
+}
+
+.page-footer {
+  background: var(--green-dark);
+  /* dark background */
+  color: rgba(250, 248, 244, 0.45);
+  padding: 32px 20px;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+
+/* Bold text inside the footer (e.g. creator name) */
+.page-footer strong {
+  color: rgba(250, 248, 244, 0.75);
+  font-weight: 500;
+}
