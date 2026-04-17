@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>South America Recipes</title>
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            background-color: #f3f0f7;
+        }
+
+        /* Sidebar navigation */
+        nav {
+            width: 200px;
+            background-color: #6a0dad; /* Purple theme */
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        nav button:hover {
+            background-color: #8a2be2;
+        }
+
+        /* Main content area */
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #6a0dad;
+        }
+
+        .country-section {
+            display: none;
+        }
+
+        /* Show active section */
+        .active {
+            display: block;
+        }
+
+        /* Recipe styling */
+        .recipe {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            color: #6a0dad;
+        }
+
+        h3 {
+            margin-top: 10px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <button onclick="showCountry('brazil')">Brazil</button>
+        <button onclick="showCountry('argentina')">Argentina</button>
+        <button onclick="showCountry('peru')">Peru</button>
+        <button onclick="showCountry('chile')">Chile</button>
+        <button onclick="showCountry('colombia')">Colombia</button>
+        <button onclick="showCountry('venezuela')">Venezuela</button>
+    </nav>
+	<main>
+	<img src="diningaroundtheworld.png" alt="South America Logo" class="logo" />
+	<style>
+  .logo {
+    width: 150px; 
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+  }
+</style>
+    
+        <h1>South America Recipes</h1>
+
+        <!-- Brazil -->
+        <section id="brazil" class="country-section">
+            <h2>Brazil</h2>
+            <!-- Feijoada -->
+            <div class="recipe">
+                <h3>Feijoada</h3>
+                <img src="https://th.bing.com/th/id/OIP.E2jk41lsBKvE8c81sPpvlgHaE7?w=272&h=181&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Feijoada">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Black beans</li>
+                    <li>Pork cuts</li>
+                    <li>Sauteed onions</li>
+                    <li>Garlic</li>
+                    <li>Bay leaves</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Cook the beans with pork, onions, garlic, and bay leaves until tender. Serve with rice and orange slices.</p>
+            </div>
+            <!-- Brigadeiro -->
+            <div class="recipe">
+                <h3>Brigadeiro</h3>
+                <img src="https://th.bing.com/th/id/OIP.xDC-vNurrwKyP8OSr4Z8JwHaE7?w=246&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7 alt="Brigadeiro">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Condensed milk</li>
+                    <li>Cocoa powder</li>
+                    <li>Butter</li>
+                    <li>Chocolate sprinkles</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Cook condensed milk with cocoa and butter until thick. Roll into balls and coat with sprinkles.</p>
+            </div>
+            <!-- Pão de Queijo -->
+            <div class="recipe">
+                <h3>Pão de Queijo</h3>
+                <img src="https://th.bing.com/th/id/OIP.ijnjfXWUWZutASYMz07taQHaE8?w=302&h=200&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Pão de Queijo">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Tapioca flour</li>
+                    <li>Cheese</li>
+                    <li>Milk</li>
+                    <li>Eggs</li>
+                    <li>Oil</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Mix ingredients, shape into balls, and bake until golden.</p>
+            </div>
+            <!-- Acai Bowl -->
+            <div class="recipe">
+                <h3>Açaí Bowl</h3>
+                <img src="https://th.bing.com/th/id/OIP.xHHscs6wYqi2VeJgSMau8gHaHa?w=189&h=189&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Açaí Bowl">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Açaí pulp</li>
+                    <li>Banana</li>
+                    <li>Granola</li>
+                    <li>Honey</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Blend açaí with banana, serve in a bowl topped with granola and honey.</p>
+            </div>
+            <!-- Coxinha -->
+            <div class="recipe">
+                <h3>Coxinha</h3>
+                <img src="https://th.bing.com/th/id/OIP.pMCs8ESLhKEcNr2DjfO3CQHaHa?w=166&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Coxinha">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Wheat flour</li>
+                    <li>Chicken</li>
+                    <li>Cream cheese</li>
+                    <li>Breadcrumbs</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Make dough, fill with chicken, shape, bread, and fry until golden.</p>
+            </div>
+            <!-- Vatapa -->
+            <div class="recipe">
+                <h3>Vatapá</h3>
+                <img src="https://tse2.mm.bing.net/th/id/OIP.w8SCidvlPfxre-FE2ZgcFwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Vatapá">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Shrimp</li>
+                    <li>Coconut milk</li>
+                    <li>Bread</li>
+                    <li>Peanuts</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Blend ingredients and cook until thick. Serve with rice.</p>
+            </div>
+        </section>
+
+        <!-- Argentina -->
+        <section id="argentina" class="country-section">
+            <h2>Argentina</h2>
+            <!-- Asado -->
+            <div class="recipe">
+                <h3>Asado</h3>
+                <img src="https://th.bing.com/th/id/OIP.dEhEd1PLNYRxXmZeFQJ8lAHaEK?w=254&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Asado">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Beef ribs</li>
+                    <li>Salt</li>
+                    <li>Chimichurri sauce</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Grill the beef over an open flame. Serve with chimichurri.</p>
+            </div>
+            <!-- Empanadas -->
+            <div class="recipe">
+                <h3>Empanadas</h3>
+                <img src="https://th.bing.com/th/id/OIP.WBxDustvT_5mAr7WoodYtgHaHa?w=288&h=217&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Empanadas">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Pastry dough</li>
+                    <li>Ground beef</li>
+                    <li>Onions</li>
+                    <li>Olives</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Fill dough with beef mixture, fold, bake or fry until golden.</p>
+            </div>
+            <!-- Milanesa -->
+            <div class="recipe">
+                <h3>Milanesa</h3>
+                <img src="https://th.bing.com/th/id/OIP.SxvD__RQZFLQ8FgcUkyXAAHaFj?w=235&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Milanesa">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Beef cutlets</li>
+                    <li>Eggs</li>
+                    <li>Bread crumbs</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Bread the beef, fry until crispy, serve with lemon.</p>
+            </div>
+            <!-- Choripán -->
+            <div class="recipe">
+                <h3>Choripán</h3>
+                <img src="https://th.bing.com/th/id/OIP.i_C_-901iuxp9ftgFYgpVAHaE6?w=250&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Choripán">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Chorizo sausage</li>
+                    <li>Crusty bread</li>
+                    <li>Chimichurri</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Grill the chorizo, serve in bread with chimichurri.</p>
+            </div>
+            <!-- Dulce de leche -->
+            <div class="recipe">
+                <h3>Dulce de Leche</h3>
+                <img src="https://th.bing.com/th/id/OIP.275sW2IJNUlZreqyeZmyxQHaEK?w=333&h=187&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Dulce de leche">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Milk</li>
+                    <li>Sugar</li>
+                    <li>Baking soda</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Cook milk with sugar and baking soda until caramelized. Spread on bread or use as filling.</p>
+            </div>
+        </section>
+
+        <!-- Peru -->
+        <section id="peru" class="country-section">
+            <h2>Peru</h2>
+            <!-- Ceviche -->
+            <div class="recipe">
+                <h3>Ceviche</h3>
+                <img src="https://th.bing.com/th/id/OIP.PtG1GKY40bRu7s13m6chqAHaLH?w=186&h=279&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Ceviche">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Fresh fish</li>
+                    <li>Lime juice</li>
+                    <li>Red onion</li>
+                    <li>Cilantro</li>
+                    <li>Chili peppers</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Marinate fish in lime juice with onions, cilantro, and chili. Serve chilled.</p>
+            </div>
+            <!-- Lomo Saltado -->
+            <div class="recipe">
+                <h3>Lomo Saltado</h3>
+                <img src="https://th.bing.com/th/id/OIP.K1vHujzNEnVFaVjNYlW6SwHaFj?w=259&h=194&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Lomo Saltado">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Beef</li>
+                    <li>Tomatoes</li>
+                    <li>Onions</li>
+                    <li>French fries</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Stir-fry beef with vegetables, serve with fries.</p>
+            </div>
+            <!-- Aji de Gallina -->
+            <div class="recipe">
+                <h3>Aji de Gallina</h3>
+                <img src="https://th.bing.com/th/id/OIP.PyY7-h0oiCT_J1H_l-bcQwHaFc?w=205&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Aji de Gallina">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Shredded chicken</li>
+                    <li>Yellow chili pepper</li>
+                    <li>Bread</li>
+                    <li>Potatoes</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Cook chicken, blend with chili and bread, serve over potatoes.</p>
+            </div>
+            <!-- Anticuchos -->
+            <div class="recipe">
+                <h3>Anticuchos</h3>
+                <img src="https://th.bing.com/th/id/OIP.jCOVdElIJNXPpzlHBD3uJQHaHa?w=166&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Anticuchos">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Beef hearts</li>
+                    <li>Spices</li>
+                    <li>Vinegar</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Marinate beef hearts, skewer, and grill.</p>
+            </div>
+            <!-- Picarones -->
+            <div class="recipe">
+                <h3>Picarones</h3>
+                <img src="https://th.bing.com/th/id/OIP.81LDdx0i3LpeKIZSzRQ_sQHaE7?w=252&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Picarones">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Sweet potato</li>
+                    <li>Squash</li>
+                    <li>Syrup</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Make dough from sweet potato and squash, fry into rings, serve with syrup.</p>
+            </div>
+        </section>
+
+        <!-- Chile -->
+        <section id="chile" class="country-section">
+            <h2>Chile</h2>
+            <!-- Pastel de Choclo -->
+            <div class="recipe">
+                <h3>Pastel de Choclo</h3>
+                <img src="https://th.bing.com/th/id/OIP.TmHjtE4dK22X6OnzJM8_nAHaE7?w=251&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Pastel de Choclo">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Corn</li>
+                    <li>Ground beef</li>
+                    <li>Onions</li>
+                    <li>Olives</li>
+                    <li>Eggs</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Prepare the corn mixture and layer with cooked beef, onions, and olives. Bake until golden.</p>
+            </div>
+            <!-- Empanadas de Pino -->
+            <div class="recipe">
+                <h3>Empanadas de Pino</h3>
+                <img src="https://th.bing.com/th/id/OIP.iM4fL4M_ghI-kE-ywaoDvQHaEj?w=263&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Empanadas de Pino">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Pastry dough</li>
+                    <li>Ground beef</li>
+                    <li>Onions</li>
+                    <li>Olives</li>
+                    <li>Eggs</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Fill dough with beef mixture, fold, bake or fry until golden.</p>
+            </div>
+            <!-- Curanto -->
+            <div class="recipe">
+                <h3>Curanto</h3>
+                <img src="https://th.bing.com/th/id/OIP.SYqJcoo9gKl2iCQjuaOFPwHaFf?w=227&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Curanto">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Seafood</li>
+                    <li>Potatoes</li>
+                    <li>Meat</li>
+                    <li>Vegetables</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Cook seafood, meat, and vegetables together in a hole with hot stones.</p>
+            </div>
+            <!-- Mote con Huesillo -->
+            <div class="recipe">
+                <h3>Mote con Huesillo</h3>
+                <img src="https://th.bing.com/th/id/OIP.Ik2kl8Z9Dn6qMrnbe_un5QHaGP?w=233&h=197&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Mote con Huesillo">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Huesillo (dried peach)</li>
+                    <li>Mote (wheat)</li>
+                    <li>Sweetener</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Cook wheat and dried peaches, serve chilled.</p>
+            </div>
+            <!-- Chilean Wine -->
+            <div class="recipe">
+                <h3>Chilean Wine</h3>
+                <img src="https://th.bing.com/th/id/OIP.D9PxO56C-vhsXmaFBxnRjQHaEA?w=262&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Chilean Wine">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Grapes</li>
+                    <li>Yeast</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Ferment grapes to produce wine, age, and enjoy.</p>
+            </div>
+        </section>
+
+        <!-- Colombia -->
+        <section id="colombia" class="country-section">
+            <h2>Colombia</h2>
+            <!-- Arepas -->
+            <div class="recipe">
+                <h3>Arepas</h3>
+                <img src="https://th.bing.com/th/id/OIP.15jtSeM0SIuRYuE_pnsJNAHaEK?w=293&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Arepas">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Pre-cooked cornmeal</li>
+                    <li>Water</li>
+                    <li>Salt</li>
+                    <li>Cheese or meats (optional)</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Mix cornmeal, water, salt, form discs, and cook on a griddle.</p>
+            </div>
+            <!-- Bandeja Paisa -->
+            <div class="recipe">
+                <h3>Bandeja Paisa</h3>
+                <img src="https://th.bing.com/th/id/OIP.7Cv9PiE_FZ1iKLYBnck3rQHaFZ?w=276&h=201&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Bandeja Paisa">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Red beans</li>
+                    <li>Rice</li>
+                    <li>Ground meat</li>
+                    <li>Chicharrón</li>
+                    <li>Eggs</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Cook beans and rice, serve with meat, chicharrón, and eggs.</p>
+            </div>
+            <!-- Arequipe (Dulce de leche) -->
+            <div class="recipe">
+                <h3>Arequipe</h3>
+                <img src="https://th.bing.com/th/id/OIP.SRt4B0Iyp6nMU53_puk_tQHaHa?w=178&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Arequipe">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Milk</li>
+                    <li>Sugar</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Cook milk and sugar until thick and caramelized. Use as spread or filling.</p>
+            </div>
+            <!-- Empanadas -->
+            <div class="recipe">
+                <h3>Empanadas</h3>
+                <img src="https://th.bing.com/th/id/OIP.uwVGaVjnIL6MqPa51onbvwHaE8?w=301&h=200&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Empanadas">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Pastry dough</li>
+                    <li>Meat or cheese filling</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Fill dough, fold, bake or fry until golden brown.</p>
+            </div>
+            <!-- Tamal -->
+            <div class="recipe">
+                <h3>Tamal</h3>
+                <img src="https://th.bing.com/th/id/OIP.D3qfWJ7gPyj7HRoMiqGGHAHaE6?w=242&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Tamal">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Corn dough</li>
+                    <li>Meat</li>
+                    <li>Banana leaves</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Wrap filling in corn dough, steam in banana leaves until cooked.</p>
+            </div>
+        </section>
+
+        <!-- Venezuela -->
+        <section id="venezuela" class="country-section">
+            <h2>Venezuela</h2>
+            <!-- Arepas -->
+            <div class="recipe">
+                <h3>Arepas</h3>
+                <img src="https://th.bing.com/th/id/OIP.UK4Sy74YH5ypVBGsTZAwcgHaHa?w=167&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Arepas">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Pre-cooked cornmeal</li>
+                    <li>Water</li>
+                    <li>Salt</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Mix ingredients, form discs, and cook on a griddle.</p>
+            </div>
+            <!-- Pabellón Criollo -->
+            <div class="recipe">
+                <h3>Pabellón Criollo</h3>
+                <img src="https://th.bing.com/th/id/OIP.hLQffe_HxgMzYiO-vptwjAHaE8?w=269&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Pabellón Criollo">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Shredded beef</li>
+                    <li>Black beans</li>
+                    <li>White rice</li>
+                    <li>Fried plantains</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Cook each component separately, serve together.</p>
+            </div>
+            <!-- Hallacas -->
+            <div class="recipe">
+                <h3>Hallacas</h3>
+                <img src="https://th.bing.com/th/id/OIP.T9KlM95150NsTLmiuO9L7QHaE8?w=301&h=200&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Hallacas">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Corn dough</li>
+                    <li>Meat filling</li>
+                    <li>Banana leaves</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Wrap filling in corn dough, enclose in banana leaves, and boil.</p>
+            </div>
+            <!-- Quesillo -->
+            <div class="recipe">
+                <h3>Quesillo</h3>
+                <img src="https://th.bing.com/th/id/OIP._-leOOCEkpCgphEl1YfZNQHaFj?w=166&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Quesillo">
+                <h4>Ingredients:</h4>
+                <ul>
+                    <li>Eggs</li>
+                    <li>Sweetened condensed milk</li>
+                </ul>
+                <h4>How to make:</h4>
+                <p>Bake eggs with condensed milk until custard forms. Chill and serve.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function showCountry(countryId) {
+            const sections = document.querySelectorAll('.country-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const selectedSection = document.getElementById(countryId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+        }
+
+        // Show the first country by default
+        window.onload = () => {
+            showCountry('brazil');
+        };
+    </script>
+</body>
+</html>
