@@ -94,7 +94,7 @@ southkorea.addEventListener("mouseleave", hideTooltip);
 
 // Thailand Click
 
-const thailand = document.getElementById("MX"); 
+const thailand = document.getElementById("TH"); 
  if (thailand) { thailand.addEventListener("click", () => { 
   window.location.href = "asianDishes.html#Thailand"; 
  }); 
