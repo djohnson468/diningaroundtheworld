@@ -19,9 +19,116 @@ function hideTooltip() {
 
 /* Clickable Countries */
 
+// China Click
+
+document.querySelectorAll(".China").forEach(country => {
+  country.addEventListener("click", () => {
+    window.location.href = "asianDishes.html#China"; 
+  });
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "China"); 
+}); 
+ country.addEventListener("mousemove", (e) => {
+    showTooltip(e, "China");
+  });
+
+  country.addEventListener("mouseleave", hideTooltip);
+});  
+
+// India Click
+
+const india = document.getElementById("IN"); 
+ if (india) { india.addEventListener("click", () => { 
+  window.location.href = "asianDishes.html#India"; 
+ }); 
+
+india.addEventListener("mouseenter", (e) => { 
+showTooltip(e, "India"); 
+}); 
+
+india.addEventListener("mousemove", (e) => { 
+showTooltip(e, "India"); 
+}); 
+
+india.addEventListener("mouseleave", hideTooltip); 
+
+}
+
+// Japan Click
+
+document.querySelectorAll(".Japan").forEach(country => {
+  country.addEventListener("click", () => {
+    window.location.href = "asianDishes.html#Japan"; 
+  });
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "Japan"); 
+}); 
+ country.addEventListener("mousemove", (e) => {
+    showTooltip(e, "Japan");
+  });
+
+  country.addEventListener("mouseleave", hideTooltip);
+  
+});
+
+// South Korea Click
+
+const southkorea = document.getElementById("KR"); 
+ if (southkorea) { southkorea.addEventListener("click", () => { 
+  window.location.href = "asianDishes.html#SouthKorea"; 
+ }); 
+
+southkorea.addEventListener("mouseenter", (e) => { 
+showTooltip(e, "South Korea"); 
+}); 
+
+southkorea.addEventListener("mousemove", (e) => { 
+showTooltip(e, "South Korea"); 
+}); 
+
+southkorea.addEventListener("mouseleave", hideTooltip); 
+
+}
+
+// Thailand Click
+
+const thailand = document.getElementById("MX"); 
+ if (thailand) { thailand.addEventListener("click", () => { 
+  window.location.href = "asianDishes.html#Thailand"; 
+ }); 
+
+thailand.addEventListener("mouseenter", (e) => { 
+showTooltip(e, "Thailand"); 
+}); 
+
+thailand.addEventListener("mousemove", (e) => { 
+showTooltip(e, "Thailand"); 
+}); 
+
+thailand.addEventListener("mouseleave", hideTooltip); 
+
+}
+
+// Turkey Click
+
+document.querySelectorAll(".Turkey").forEach(country => {
+  country.addEventListener("click", () => {
+    window.location.href = "asianDishes.html#Turkey"; 
+  });
+
+country.addEventListener("mouseenter", (e) => { 
+ showTooltip(e, "Turkey"); 
+}); 
+ country.addEventListener("mousemove", (e) => {
+    showTooltip(e, "Turkey");
+  });
+
+  country.addEventListener("mouseleave", hideTooltip);
+});  
 
 /* All Tooltip (NON-CLICKABLE) Country Names */
-
 
 
 /* Classes */
@@ -39,18 +146,6 @@ document.querySelectorAll(".Azerbaijan").forEach(country => {
 
 });
 
-document.querySelectorAll(".China").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "China");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "China");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
 
 document.querySelectorAll(".Cyprus").forEach(country => {
   country.addEventListener("mouseenter", (e) => {
@@ -78,18 +173,6 @@ document.querySelectorAll(".Indonesia").forEach(country => {
 
 }); 
 
-document.querySelectorAll(".Japan").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Japan");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Japan");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
 
 document.querySelectorAll(".Malaysia").forEach(country => {
   country.addEventListener("mouseenter", (e) => {
@@ -137,19 +220,6 @@ document.querySelectorAll(".Russian.Federation").forEach(country => {
 
   country.addEventListener("mousemove", (e) => {
     showTooltip(e, "Russia");
-  });
-
-  country.addEventListener("mouseleave", hideTooltip);
-
-});
-
-document.querySelectorAll(".Turkey").forEach(country => {
-  country.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Turkey");
-  });
-
-  country.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Turkey");
   });
 
   country.addEventListener("mouseleave", hideTooltip);
@@ -288,22 +358,6 @@ if (georgia) {
 
 }
 
-const india = document.getElementById("IN");
-
-if (india) {
-
-  india.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "India");
-  });
-
-  india.addEventListener("mousemove", (e) => {
-    showTooltip(e, "India");
-  });
-
-  india.addEventListener("mouseleave", hideTooltip);
-
-}
-
 const iran = document.getElementById("IR");
 
 if (iran) {
@@ -399,6 +453,7 @@ if (kuwait) {
   kuwait.addEventListener("mouseleave", hideTooltip);
 
 }
+
 const kyrgyzstan = document.getElementById("KG");
 
 if (kyrgyzstan) {
@@ -592,22 +647,6 @@ if (saudiarabia) {
 
 }
 
-const southkorea = document.getElementById("KR");
-
-if (southkorea) {
-
-  southkorea.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "South Korea");
-  });
-
-  southkorea.addEventListener("mousemove", (e) => {
-    showTooltip(e, "South Korea");
-  });
-
-  southkorea.addEventListener("mouseleave", hideTooltip);
-
-}
-
 const srilanka = document.getElementById("LK");
 
 if (srilanka) {
@@ -669,22 +708,6 @@ if (tajikistan) {
   });
 
   tajikistan.addEventListener("mouseleave", hideTooltip);
-
-}
-
-const thailand = document.getElementById("TH");
-
-if (thailand) {
-
-  thailand.addEventListener("mouseenter", (e) => {
-    showTooltip(e, "Thailand");
-  });
-
-  thailand.addEventListener("mousemove", (e) => {
-    showTooltip(e, "Thailand");
-  });
-
-  thailand.addEventListener("mouseleave", hideTooltip);
 
 }
 
